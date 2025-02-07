@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useCameraKit } from './hooks/useCameraKit';
 import { createMediaStreamSource, Transform2D } from '@snap/camera-kit';
 
 function App() {
   const { session, lenses } = useCameraKit();
   const canvasContainerRef = useRef<HTMLDivElement>(null);
+  const [selectedLens, setSelectedLens] = useState<string | null>(null);
 
   const startCameraKit = useCallback(async () => {
     const mediaStream = await navigator.mediaDevices.getUserMedia({
@@ -18,18 +19,46 @@ function App() {
 
     session.setSource(source);
     session.applyLens(lenses[0]);
+    setSelectedLens(lenses[0].id); // Set default lens state
     session.play('live');
   }, [session, lenses]);
 
+  // Effect to start the CameraKit session
   useEffect(() => {
     startCameraKit();
   }, [startCameraKit]);
 
+  // Effect to update the lens when selected
+  useEffect(() => {
+    if (!session || !selectedLens) return;
+
+    const lens = lenses.find((l) => l.id === selectedLens);
+    if (lens) {
+      session.applyLens(lens);
+    }
+  }, [selectedLens, session, lenses]);
+
+  // Effect to attach CameraKit's output to the DOM
   useEffect(() => {
     canvasContainerRef?.current?.replaceWith(session.output.live);
   }, [session]);
 
-  return <div ref={canvasContainerRef}></div>;
+  return (
+    <div>
+      <select
+        onChange={(e) => setSelectedLens(e.target.value)}
+        value={selectedLens || ''}
+      >
+        {lenses.map((lens) => (
+          <option key={lens.id} value={lens.id}>
+            {lens.name}
+          </option>
+        ))}
+      </select>
+
+      <div ref={canvasContainerRef}></div>
+    </div>
+  );
 }
 
 export default App;
