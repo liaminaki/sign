@@ -13,12 +13,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+html, body {
   margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Prevent scrollbars */
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 @media (prefers-color-scheme: light) {
@@ -28,29 +40,32 @@ body {
   }
 }
 
-canvas {
-  border-radius: 10px;
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+canvas {
+  width: 100%; 
+  height: 100%;
+  object-fit: cover; 
+  position: relative;
 }
+
 
 .lens-carousel-container {
-  /* width: 100vh;
-  overflow: hidden; */
-  padding: 20px 0;
+  position: absolute;
+  bottom: 20px; /* Adjust spacing from bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: rgba(0, 0, 0, 0.3); /* Optional: for better visibility */
+  border-radius: 20px;
 }
 
 .lens-swiper {
-  /* width: 100%;
-  height: 100%; */
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   padding: 20px 0;
 }
 

@@ -45,9 +45,9 @@ function App() {
   }, [session]);
 
   return (
-    <div>
+    <div className="app-container">
       <div ref={canvasContainerRef}></div>
-      <div>
+      <div className="lens-carousel-container">
         <LensCarousel />
       </div>
     </div>
