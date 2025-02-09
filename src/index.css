@@ -38,3 +38,47 @@ canvas {
   padding: 2rem;
   text-align: center;
 }
+
+.lens-carousel-container {
+  /* width: 100vh;
+  overflow: hidden; */
+  padding: 20px 0;
+}
+
+.lens-swiper {
+  /* width: 100%;
+  height: 100%; */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  padding: 20px 0;
+}
+
+.lens-item {
+  width: 60px !important;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.lens-item:hover {
+  transform: scale(1.1);
+}
+
+.lens-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

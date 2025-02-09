@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useCameraKit } from './hooks/useCameraKit';
 import { createMediaStreamSource, Transform2D } from '@snap/camera-kit';
+import LensCarousel from "./LensCarousel";
 
 function App() {
   const { session, lenses } = useCameraKit();
@@ -45,18 +46,10 @@ function App() {
 
   return (
     <div>
-      <select
-        onChange={(e) => setSelectedLens(e.target.value)}
-        value={selectedLens || ''}
-      >
-        {lenses.map((lens) => (
-          <option key={lens.id} value={lens.id}>
-            {lens.name}
-          </option>
-        ))}
-      </select>
-
       <div ref={canvasContainerRef}></div>
+      <div>
+        <LensCarousel />
+      </div>
     </div>
   );
 }
