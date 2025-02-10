@@ -47,9 +47,7 @@ function App() {
   return (
     <div className="app-container">
       <div ref={canvasContainerRef}></div>
-      <div className="lens-carousel-container">
-        <LensCarousel />
-      </div>
+      <LensCarousel />
     </div>
   );
 }
