@@ -57,7 +57,7 @@ canvas {
 
 .lens-carousel-container {
   position: absolute;
-  bottom: 20px; /* Adjust spacing from bottom */
+  bottom: 100px; /* Adjust spacing from bottom */
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
