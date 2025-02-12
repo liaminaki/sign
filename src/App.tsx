@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useCameraKit } from './hooks/useCameraKit';
 import { createMediaStreamSource, Transform2D } from '@snap/camera-kit';
 import LensCarousel from "./LensCarousel";
+import Controls from "./components/Controls";
 
 function App() {
   const { session, lenses } = useCameraKit();
@@ -48,6 +49,7 @@ function App() {
     <div className="app-container">
       <div ref={canvasContainerRef}></div>
       <LensCarousel />
+      <Controls />
     </div>
   );
 }

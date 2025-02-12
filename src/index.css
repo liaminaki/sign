@@ -97,3 +97,21 @@ canvas {
   align-items: center;
   justify-content: center;
 }
+
+.controls-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.controls-container button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+}
