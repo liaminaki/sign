@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 function Controls() {
   const [isLocked, setIsLocked] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [repeatMode, setRepeatMode] = useState<'disabled' | 'once' | 'repeat'>('disabled');
 
   const toggleLock = () => setIsLocked((prev) => !prev);
