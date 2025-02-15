@@ -15,8 +15,6 @@ function LensCarousel() {
     }
   };
 
-  console.log(activeIndex);
-
   return (
     <div className="lens-carousel-container">
       <Swiper
