@@ -57,7 +57,7 @@ canvas {
 
 .lens-carousel-container {
   position: absolute;
-  bottom: 100px; /* Adjust spacing from bottom */
+  bottom: 120px; /* Adjust spacing from bottom */
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
@@ -104,14 +104,39 @@ canvas {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 10px;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
 }
 
-.controls-container button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  background: rgba(0, 0, 0, 0.5);
+.control-btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); */
+  transition: background 0.2s, transform 0.1s;
+  border: none;
   cursor: pointer;
+}
+
+.control-btn:hover {
+  background-color: #444;
+}
+
+.control-btn:active {
+  transform: scale(0.9);
+}
+
+/* Play/Pause Button - Bigger & White */
+.play-btn {
+  width: 64px;
+  height: 64px;
+  background-color: white;
+  color: black;
 }
