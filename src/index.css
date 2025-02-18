@@ -111,8 +111,8 @@ canvas {
 }
 
 .control-btn {
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
