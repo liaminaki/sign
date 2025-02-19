@@ -4,15 +4,11 @@ import { Lock, Unlock, Play, Pause, Repeat, RefreshCw, Slash } from "lucide-reac
 function Controls() {
   const [isLocked, setIsLocked] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [repeatMode, setRepeatMode] = useState<"disabled" | "once" | "repeat">("disabled");
+  const [isRepeating, setIsRepeating] = useState(false);
 
   const toggleLock = () => setIsLocked((prev) => !prev);
   const togglePlay = () => setIsPlaying((prev) => !prev);
-  const cycleRepeatMode = () => {
-    setRepeatMode((prev) =>
-      prev === "disabled" ? "once" : prev === "once" ? "repeat" : "disabled"
-    );
-  };
+  const toggleRepeating = () => setIsRepeating((prev) => !prev);
 
   return (
     <div className="controls-container">
@@ -24,14 +20,8 @@ function Controls() {
         {isPlaying ? <Pause size={20} /> : <Play size={20} />}
       </button>
 
-      <button className="control-btn" onClick={cycleRepeatMode}>
-        {repeatMode === "repeat" ? (
-          <Repeat size={20} />
-        ) : repeatMode === "once" ? (
-          <RefreshCw size={20} />
-        ) : (
-          <Slash size={20} />
-        )}
+      <button className="control-btn" onClick={toggleRepeating}>
+        {isRepeating ? <Repeat size={20} /> : <RefreshCw size={20} />}
       </button>
     </div>
   );
