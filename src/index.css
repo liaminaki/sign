@@ -135,8 +135,8 @@ canvas {
 
 /* Play/Pause Button - Bigger & White */
 .play-btn {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   background-color: white;
   color: black;
 }
