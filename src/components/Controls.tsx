@@ -1,14 +1,22 @@
-import { useState } from "react";
 import { Lock, Unlock, Play, Pause, Repeat, RefreshCw, Slash } from "lucide-react";
 
-function Controls() {
-  const [isLocked, setIsLocked] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isRepeating, setIsRepeating] = useState(false);
+interface ControlsProps {
+  isLocked: boolean;
+  isPlaying: boolean;
+  isRepeating: boolean;
+  toggleLock: () => void;
+  togglePlay: () => void;
+  toggleRepeating: () => void;
+}
 
-  const toggleLock = () => setIsLocked((prev) => !prev);
-  const togglePlay = () => setIsPlaying((prev) => !prev);
-  const toggleRepeating = () => setIsRepeating((prev) => !prev);
+const Controls : React.FC<ControlsProps> = ({
+  isLocked,
+  isPlaying,
+  isRepeating,
+  toggleLock,
+  togglePlay,
+  toggleRepeating,
+}) => {
 
   return (
     <div className="controls-container">

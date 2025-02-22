@@ -8,6 +8,9 @@ function App() {
   const { session, lenses } = useCameraKit();
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const [selectedLens, setSelectedLens] = useState<string | null>(null);
+  const [isLocked, setIsLocked] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isRepeating, setIsRepeating] = useState(false);
 
   const startCameraKit = useCallback(async () => {
     const mediaStream = await navigator.mediaDevices.getUserMedia({
@@ -45,11 +48,22 @@ function App() {
     canvasContainerRef?.current?.replaceWith(session.output.live);
   }, [session]);
 
+  const toggleLock = () => setIsLocked((prev) => !prev);
+  const togglePlay = () => setIsPlaying((prev) => !prev);
+  const toggleRepeating = () => setIsRepeating((prev) => !prev);
+
   return (
     <div className="app-container">
       <div ref={canvasContainerRef}></div>
       <LensCarousel selectedLens={selectedLens} setSelectedLens={setSelectedLens}/>
-      <Controls />
+      <Controls isLocked={isLocked}
+        isPlaying={isPlaying}
+        isRepeating={isRepeating}
+        toggleLock={toggleLock}
+        togglePlay={togglePlay}
+        toggleRepeating={toggleRepeating} 
+      
+      />
     </div>
   );
 }
