@@ -48,7 +48,7 @@ function App() {
   return (
     <div className="app-container">
       <div ref={canvasContainerRef}></div>
-      <LensCarousel />
+      <LensCarousel selectedLens={selectedLens} setSelectedLens={setSelectedLens}/>
       <Controls />
     </div>
   );

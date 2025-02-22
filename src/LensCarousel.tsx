@@ -1,18 +1,17 @@
-import { act, useState } from "react";
 import { useCameraKit } from "./hooks/useCameraKit";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-function LensCarousel() {
-  const { session, lenses } = useCameraKit();
-  const [activeIndex, setActiveIndex] = useState(0);
+interface LensCarouselProps {
+  selectedLens: string | null;
+  setSelectedLens: (lensId: string) => void;
+}
 
-  const applyLens = (lensId: string, index: number) => {
-    const selectedLens = lenses.find((lens) => lens.id === lensId);
-    if (selectedLens) {
-      session.applyLens(selectedLens);
-      setActiveIndex(index); // Update active index
-    }
+const LensCarousel: React.FC<LensCarouselProps> = ({ selectedLens, setSelectedLens }) => {
+  const { lenses } = useCameraKit();
+
+  const handleLensChange = (lensId: string, index: number) => {
+    setSelectedLens(lensId); // Update lens in App.tsx
   };
 
   return (
@@ -24,21 +23,21 @@ function LensCarousel() {
         slideToClickedSlide={true}
         className="lens-swiper"
         onSlideChange={(swiper) => 
-            applyLens(lenses[swiper.realIndex]?.id, swiper.realIndex) // Apply lens on swipe
+          handleLensChange(lenses[swiper.realIndex]?.id, swiper.realIndex) // Apply lens on swipe
         }
       >
         {lenses.map((lens, index) => (
           <SwiperSlide
             key={lens.id}
             className="lens-item"
-            onClick={() => applyLens(lens.id, index)}
+            onClick={() => handleLensChange(lens.id, index)}
           >
             <div
               className="lens-circle"
               style={{
-                backgroundColor: activeIndex === index ? "white" : "rgba(0, 0, 0, 0.5)",
-                color: activeIndex === index ? "black" : "white",
-                transform: activeIndex === index ? "scale(1.4)" : "scale(1)", // Enlarge the active lens
+                backgroundColor: selectedLens === lens.id ? "white" : "rgba(0, 0, 0, 0.5)",
+                color: selectedLens === lens.id ? "black" : "white",
+                transform: selectedLens === lens.id ? "scale(1.4)" : "scale(1)", // Enlarge the active lens
               }}
             >
               {index + 1}
