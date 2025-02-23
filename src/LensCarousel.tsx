@@ -5,13 +5,19 @@ import "swiper/css";
 interface LensCarouselProps {
   selectedLens: string | null;
   setSelectedLens: (lensId: string) => void;
+  setIsPlaying: (isPlaying: boolean) => void;
 }
 
-const LensCarousel: React.FC<LensCarouselProps> = ({ selectedLens, setSelectedLens }) => {
+const LensCarousel: React.FC<LensCarouselProps> = ({ 
+  selectedLens, 
+  setSelectedLens,
+  setIsPlaying 
+}) => {
   const { lenses } = useCameraKit();
 
   const handleLensChange = (lensId: string, index: number) => {
     setSelectedLens(lensId); // Update lens in App.tsx
+    setIsPlaying(false); // Pause state when changing lens
   };
 
   return (

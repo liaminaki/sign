@@ -23,30 +23,40 @@ function App() {
     });
 
     session.setSource(source);
-    session.applyLens(lenses[0]);
     setSelectedLens(lenses[0].id); // Set default lens state
     session.play('live');
   }, [session, lenses]);
 
-  // Effect to start the CameraKit session
+  // Start the CameraKit session
   useEffect(() => {
     startCameraKit();
   }, [startCameraKit]);
 
-  // Effect to update the lens when selected
+  // Update lens when selected, or isPlaying changes
   useEffect(() => {
+    updateLens();
+  }, [selectedLens, session, lenses, isPlaying]);
+
+  // Attach CameraKit's output to the DOM
+  useEffect(() => {
+    canvasContainerRef?.current?.replaceWith(session.output.live);
+  }, [session]);
+
+  const updateLens = () => {
     if (!session || !selectedLens) return;
 
     const lens = lenses.find((l) => l.id === selectedLens);
     if (lens) {
-      session.applyLens(lens);
-    }
-  }, [selectedLens, session, lenses]);
+      session.applyLens(lens, { 
+        launchParams: {
+          "isPlaying": isPlaying ? "true" : "false",
+        },
+      });
 
-  // Effect to attach CameraKit's output to the DOM
-  useEffect(() => {
-    canvasContainerRef?.current?.replaceWith(session.output.live);
-  }, [session]);
+      console.log("Lens updated");
+      console.log(lens.vendorData);
+    }
+  }
 
   const toggleLock = () => setIsLocked((prev) => !prev);
   const togglePlay = () => setIsPlaying((prev) => !prev);
@@ -55,7 +65,7 @@ function App() {
   return (
     <div className="app-container">
       <div ref={canvasContainerRef}></div>
-      <LensCarousel selectedLens={selectedLens} setSelectedLens={setSelectedLens}/>
+      <LensCarousel selectedLens={selectedLens} setSelectedLens={setSelectedLens} setIsPlaying={setIsPlaying}/>
       <Controls isLocked={isLocked}
         isPlaying={isPlaying}
         isRepeating={isRepeating}
