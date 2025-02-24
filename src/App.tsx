@@ -10,7 +10,6 @@ function App() {
   const [selectedLens, setSelectedLens] = useState<string | null>(null);
   const [isLocked, setIsLocked] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isRepeating, setIsRepeating] = useState(false);
 
   const startCameraKit = useCallback(async () => {
     const mediaStream = await navigator.mediaDevices.getUserMedia({
@@ -60,7 +59,6 @@ function App() {
 
   const toggleLock = () => setIsLocked((prev) => !prev);
   const togglePlay = () => setIsPlaying((prev) => !prev);
-  const toggleRepeating = () => setIsRepeating((prev) => !prev);
 
   return (
     <div className="app-container">
@@ -68,10 +66,8 @@ function App() {
       <LensCarousel selectedLens={selectedLens} setSelectedLens={setSelectedLens} setIsPlaying={setIsPlaying}/>
       <Controls isLocked={isLocked}
         isPlaying={isPlaying}
-        isRepeating={isRepeating}
         toggleLock={toggleLock}
         togglePlay={togglePlay}
-        toggleRepeating={toggleRepeating} 
       
       />
     </div>
