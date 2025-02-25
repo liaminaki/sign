@@ -57,7 +57,6 @@ function App() {
       console.log("Lens updated");
       console.log(lens.vendorData);
     }
-    setIsPlaying(false);
   }
 
   const toggleLock = () => setIsLocked((prev) => !prev);
@@ -73,7 +72,7 @@ function App() {
   return (
     <div className="app-container">
       <div ref={canvasContainerRef}></div>
-      <LensCarousel selectedLens={selectedLens} setSelectedLens={setSelectedLens}/>
+      <LensCarousel selectedLens={selectedLens} setSelectedLens={setSelectedLens} setIsPlaying={setIsPlaying}/>
       <Controls isLocked={isLocked}
         isPlaying={isPlaying}
         playbackSpeed={playbackSpeed}
