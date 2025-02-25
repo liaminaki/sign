@@ -50,6 +50,7 @@ function App() {
       session.applyLens(lens, { 
         launchParams: {
           "isPlaying": isPlaying ? "true" : "false",
+          "playbackSpeed": playbackSpeed,
         },
       });
 
@@ -65,6 +66,7 @@ function App() {
     const currentIndex = speedLevels.indexOf(playbackSpeed);
     const newSpeed = speedLevels[(currentIndex + 1) % speedLevels.length];
     setPlaybackSpeed(newSpeed);
+    setIsPlaying(false); // Pause when changing speed
   };
 
   return (
