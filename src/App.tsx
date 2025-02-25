@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useCameraKit } from './hooks/useCameraKit';
-import { createMediaStreamSource, Transform2D } from '@snap/camera-kit';
+import { createMediaStreamSource, Transform2D, Lens } from '@snap/camera-kit';
 import LensCarousel from "./LensCarousel";
 import Controls from "./components/Controls";
 
@@ -11,6 +11,8 @@ function App() {
   const [isLocked, setIsLocked] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState(1.0);
+  const [autoPlayed, setAutoPlayed] = useState(false); // Determine if switching of lens is due to autoplay
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const startCameraKit = useCallback(async () => {
     const mediaStream = await navigator.mediaDevices.getUserMedia({
@@ -42,6 +44,36 @@ function App() {
     canvasContainerRef?.current?.replaceWith(session.output.live);
   }, [session]);
 
+  // Clear the timeout when isPlaying becomes false
+  // This is to prevent the lens from switching when paused
+  useEffect(() => {
+    if (!isPlaying && timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  }, [isPlaying]);
+
+  const getLensDuration = (lens: Lens): number => {
+    const duration = parseFloat(lens.vendorData?.duration);
+    return isNaN(duration) ? 2.0 : duration;
+  };
+
+  const switchToNextLens = () => {
+    const lens = lenses.find((l) => l.id === selectedLens);
+    if (lens) {
+      const duration = getLensDuration(lens);
+
+      // Wait for the duration before switching to the next lens
+      // Cleared when isPlaying becomes false
+      timeoutRef.current = setTimeout(() => {
+        const currentIndex = lenses.findIndex((l) => l.id === selectedLens);
+        const nextIndex = (currentIndex + 1) % lenses.length;
+        setAutoPlayed(true);
+        setSelectedLens(lenses[nextIndex].id);
+      }, duration / playbackSpeed * 1000);
+    }
+  };
+
   const updateLens = () => {
     if (!session || !selectedLens) return;
 
@@ -56,6 +88,10 @@ function App() {
 
       console.log("Lens updated");
       console.log(lens.vendorData);
+
+      if (isPlaying) {
+        switchToNextLens();
+      }
     }
   }
 
@@ -72,7 +108,13 @@ function App() {
   return (
     <div className="app-container">
       <div ref={canvasContainerRef}></div>
-      <LensCarousel selectedLens={selectedLens} setSelectedLens={setSelectedLens} setIsPlaying={setIsPlaying}/>
+      <LensCarousel
+        selectedLens={selectedLens} 
+        setSelectedLens={setSelectedLens}
+        setIsPlaying={setIsPlaying} 
+        autoPlayed={autoPlayed}
+        setAutoPlayed={setAutoPlayed}
+      />
       <Controls isLocked={isLocked}
         isPlaying={isPlaying}
         playbackSpeed={playbackSpeed}
