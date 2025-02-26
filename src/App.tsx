@@ -37,6 +37,9 @@ function App() {
   // Update lens when selected, or isPlaying changes
   useEffect(() => {
     updateLens();
+    if (isPlaying) {
+      switchToNextLens();
+    }
   }, [selectedLens, session, lenses, isPlaying]);
 
   // Attach CameraKit's output to the DOM
@@ -88,10 +91,6 @@ function App() {
 
       console.log("Lens updated");
       console.log(lens.vendorData);
-
-      if (isPlaying) {
-        switchToNextLens();
-      }
     }
   }
 
