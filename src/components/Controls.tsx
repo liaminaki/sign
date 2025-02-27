@@ -1,4 +1,4 @@
-import { Lock, Unlock, Play, Pause} from "lucide-react";
+import { Lock, Unlock, Play, Pause, RefreshCw} from "lucide-react";
 
 interface ControlsProps {
   isLocked: boolean;
@@ -36,6 +36,10 @@ const Controls: React.FC<ControlsProps> = ({
 
       <button className="control-btn" onClick={changePlaybackSpeed}>
         <span>{speedLabels[playbackSpeed]}</span>
+      </button>
+
+      <button className="control-btn" onClick={restart}>
+        <RefreshCw size={20} />
       </button>
     </div>
   );
