@@ -7,6 +7,7 @@ interface ControlsProps {
   toggleLock: () => void;
   togglePlay: () => void;
   changePlaybackSpeed: () => void;
+  restart: () => void; 
 }
 
 const speedLabels: { [key: number]: string } = {
@@ -22,6 +23,7 @@ const Controls: React.FC<ControlsProps> = ({
   toggleLock,
   togglePlay,
   changePlaybackSpeed,
+  restart,
 }) => {
 
   return (

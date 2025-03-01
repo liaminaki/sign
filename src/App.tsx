@@ -103,6 +103,11 @@ function App() {
     setPlaybackSpeed(newSpeed);
     setIsPlaying(false); // Pause when changing speed
   };
+  const restart = () => {
+    setAutoPlayed(true);
+    setSelectedLens(lenses[0].id); // Reset to the first lens
+    setIsPlaying(false);
+  };
 
   return (
     <div className="app-container">
@@ -120,6 +125,7 @@ function App() {
         toggleLock={toggleLock}
         togglePlay={togglePlay}
         changePlaybackSpeed={changePlaybackSpeed}
+        restart={restart}
       />
     </div>
   );
