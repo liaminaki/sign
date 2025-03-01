@@ -34,27 +34,27 @@ function App() {
     startCameraKit();
   }, [startCameraKit]);
 
-  // Update lens when selected, or isPlaying changes
+  // Update lens when selected, or isPlaying and isLocked changes
   useEffect(() => {
     updateLens();
-    if (isPlaying) {
+    if (isPlaying && !isLocked) {
       switchToNextLens();
     }
-  }, [selectedLens, session, lenses, isPlaying]);
+  }, [selectedLens, session, lenses, isPlaying, isLocked]);
 
   // Attach CameraKit's output to the DOM
   useEffect(() => {
     canvasContainerRef?.current?.replaceWith(session.output.live);
   }, [session]);
 
-  // Clear the timeout when isPlaying becomes false
-  // This is to prevent the lens from switching when paused
+  // Clear the timeout when isPlaying becomes false and isLocked
+  // This is to prevent the lens from switching when paused or when locked after playing
   useEffect(() => {
-    if (!isPlaying && timeoutRef.current) {
+    if ((!isPlaying || isLocked) && timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
-  }, [isPlaying]);
+  }, [isPlaying, isLocked]);
 
   const getLensDuration = (lens: Lens): number => {
     const duration = parseFloat(lens.vendorData?.duration);
