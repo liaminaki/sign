@@ -34,11 +34,11 @@ const LensCarousel: React.FC<LensCarouselProps> = ({
 
   useEffect(() => {
     if (autoPlayed)
-      slideToNextLens();
+      slideToSelectedLens();
   }, [selectedLens, lenses]);
 
   // Used when autoplaying
-  const slideToNextLens = () => {
+  const slideToSelectedLens = () => {
     console.log("autoSlideToLens");
     if (selectedLens) {
       const currentIndex = lenses.findIndex((lens) => lens.id === selectedLens);
