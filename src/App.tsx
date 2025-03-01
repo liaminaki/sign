@@ -11,7 +11,7 @@ function App() {
   const [isLocked, setIsLocked] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState(1.0);
-  const [autoPlayed, setAutoPlayed] = useState(false); // Determine if switching of lens is due to autoplay
+  const [autoSlide, setAutoSlide] = useState(false); // Determine need to force switch lens either due to autoplay or restart
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const startCameraKit = useCallback(async () => {
@@ -71,7 +71,7 @@ function App() {
       timeoutRef.current = setTimeout(() => {
         const currentIndex = lenses.findIndex((l) => l.id === selectedLens);
         const nextIndex = (currentIndex + 1) % lenses.length;
-        setAutoPlayed(true);
+        setAutoSlide(true);
         setSelectedLens(lenses[nextIndex].id);
       }, duration / playbackSpeed * 1000);
     }
@@ -104,7 +104,7 @@ function App() {
     setIsPlaying(false); // Pause when changing speed
   };
   const restart = () => {
-    setAutoPlayed(true);
+    setAutoSlide(true);
     setSelectedLens(lenses[0].id); // Reset to the first lens
     setIsPlaying(false);
   };
@@ -116,8 +116,8 @@ function App() {
         selectedLens={selectedLens} 
         setSelectedLens={setSelectedLens}
         setIsPlaying={setIsPlaying} 
-        autoPlayed={autoPlayed}
-        setAutoPlayed={setAutoPlayed}
+        autoSlide={autoSlide}
+        setAutoSlide={setAutoSlide}
       />
       <Controls isLocked={isLocked}
         isPlaying={isPlaying}

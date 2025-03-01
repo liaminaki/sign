@@ -7,23 +7,23 @@ interface LensCarouselProps {
   selectedLens: string | null;
   setSelectedLens: (lensId: string) => void;
   setIsPlaying: (isPlaying: boolean) => void;
-  autoPlayed: boolean;
-  setAutoPlayed: (autoPlayed: boolean) => void;
+  autoSlide: boolean;
+  setAutoSlide: (autoSlide: boolean) => void;
 }
 
 const LensCarousel: React.FC<LensCarouselProps> = ({ 
   selectedLens, 
   setSelectedLens,
   setIsPlaying,
-  autoPlayed,
-  setAutoPlayed, 
+  autoSlide,
+  setAutoSlide, 
 }) => {
   const { lenses } = useCameraKit();
   const swiperRef = React.useRef<any>(null);  
 
   const handleLensChange = (lensId: string, index: number) => {
-    if (autoPlayed) {
-      setAutoPlayed(false);
+    if (autoSlide) {
+      setAutoSlide(false);
       return; // Prevent autoSlideToLens from being called by not selecting a lens again 
     }
 
@@ -33,11 +33,11 @@ const LensCarousel: React.FC<LensCarouselProps> = ({
   };
 
   useEffect(() => {
-    if (autoPlayed)
+    if (autoSlide)
       slideToSelectedLens();
   }, [selectedLens, lenses]);
 
-  // Used when autoplaying
+  // Used when autoplaying or restarting
   const slideToSelectedLens = () => {
     console.log("autoSlideToLens");
     if (selectedLens) {
