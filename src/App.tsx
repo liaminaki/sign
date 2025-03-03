@@ -94,10 +94,7 @@ function App() {
     }
   }
 
-  const toggleLock = () => {
-    setIsLocked((prev) => !prev);
-    setIsPlaying(false); // Pause when locking
-  }
+  const toggleLock = () => setIsLocked((prev) => !prev);
   const togglePlay = () => setIsPlaying((prev) => !prev);
   const changePlaybackSpeed = () => {
     const speedLevels = [1.0, 0.5, 0.25];
