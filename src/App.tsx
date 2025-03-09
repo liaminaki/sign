@@ -115,21 +115,30 @@ function App() {
   return (
     <div className="app-container">
       <div ref={canvasContainerRef}></div>
-      <LensCarousel
-        selectedLens={selectedLens} 
-        setSelectedLens={setSelectedLens}
-        setIsPlaying={setIsPlaying} 
-        autoSlide={autoSlide}
-        setAutoSlide={setAutoSlide}
-      />
-      <Controls isLocked={isLocked}
-        isPlaying={isPlaying}
-        playbackSpeed={playbackSpeed}
-        toggleLock={toggleLock}
-        togglePlay={togglePlay}
-        changePlaybackSpeed={changePlaybackSpeed}
-        restart={restart}
-      />
+
+      <div className="ui-container">
+        <div className="header">
+          <button className="control-btn">
+          </button>
+          <div>heAR</div>
+        </div>
+        <LensCarousel
+          selectedLens={selectedLens} 
+          setSelectedLens={setSelectedLens}
+          setIsPlaying={setIsPlaying} 
+          autoSlide={autoSlide}
+          setAutoSlide={setAutoSlide}
+        />
+        <Controls isLocked={isLocked}
+          isPlaying={isPlaying}
+          playbackSpeed={playbackSpeed}
+          toggleLock={toggleLock}
+          togglePlay={togglePlay}
+          changePlaybackSpeed={changePlaybackSpeed}
+          restart={restart}
+        />
+      </div>
+      
     </div>
   );
 }
