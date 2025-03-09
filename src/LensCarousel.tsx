@@ -49,38 +49,33 @@ const LensCarousel: React.FC<LensCarouselProps> = ({
   }
 
   return (
-    <div className="lens-carousel-container">
-      <Swiper
-        slidesPerView={"auto"}
-        spaceBetween={20}
-        centeredSlides={true}
-        slideToClickedSlide={true}
-        className="lens-swiper"
-        onSwiper={(swiper) => (swiperRef.current = swiper)} // Store swiper instance
-        onSlideChange={(swiper) => 
-          handleLensChange(lenses[swiper.realIndex]?.id, swiper.realIndex) // Apply lens on swipe
-        }
-      >
-        {lenses.map((lens, index) => (
-          <SwiperSlide
-            key={lens.id}
-            className="lens-item"
-            // onClick={() => handleLensChange(lens.id, index)} 
-          >
-            <div
-              className="lens-circle"
-              style={{
-                backgroundColor: selectedLens === lens.id ? "white" : "rgba(0, 0, 0, 0.5)",
-                color: selectedLens === lens.id ? "black" : "white",
-                transform: selectedLens === lens.id ? "scale(1.4)" : "scale(1)", // Enlarge the active lens
-              }}
-            >
-              {index + 1}
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+    <Swiper
+      slidesPerView={"auto"}
+      spaceBetween={16}
+      centeredSlides={true}
+      slideToClickedSlide={true}
+      className="lens-carousel-container"
+      onSwiper={(swiper) => (swiperRef.current = swiper)} // Store swiper instance
+      onSlideChange={(swiper) => 
+        handleLensChange(lenses[swiper.realIndex]?.id, swiper.realIndex) // Apply lens on swipe
+      }
+    >
+      <div className="center-circle"></div>
+      {lenses.map((lens, index) => (
+        <SwiperSlide
+          key={lens.id}
+          className="lens-item"
+          style={{
+            // backgroundColor: selectedLens === lens.id ? "white" : "rgba(0, 0, 0, 0.3)",
+            // color: selectedLens === lens.id ? "black" : "white",
+            transform: selectedLens === lens.id ? "scale(1.2)" : "", // Enlarge the active lens
+          }}
+          // onClick={() => handleLensChange(lens.id, index)} 
+        >
+          {index + 1}
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 }
 
