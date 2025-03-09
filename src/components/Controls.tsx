@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faLockOpen, faPlay, faPause, faRotateLeft } from '@fortawesome/free-solid-svg-icons';
+import snapAttribution from '../assets/img/snap-attri.svg';
 
 interface ControlsProps {
   isLocked: boolean;
@@ -31,8 +32,7 @@ const Controls: React.FC<ControlsProps> = ({
     <div className="controls-container">
 
       <div className="controls-group left-group">
-        <button className="control-btn">
-        </button>
+        <img src={snapAttribution} alt="Snap Attribution" className="custom-icon" />
       </div>
       
       <div className="controls-group center-group">
