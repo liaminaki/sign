@@ -50,7 +50,7 @@ const Controls: React.FC<ControlsProps> = ({
       </div>
 
       <div className="controls-group right-group">
-        <button className="control-btn" onClick={restart}>
+        <button onClick={restart}>
           <FontAwesomeIcon icon={faRotateLeft} size="lg" />
         </button>
       </div>

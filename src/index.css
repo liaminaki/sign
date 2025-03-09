@@ -139,29 +139,38 @@ canvas {
 
 .center-group {
   justify-content: center;
+  gap: 16px;  
 }
 
 .right-group {
   justify-content: flex-end;
 }
 
-.control-btn {
-  width: 48px;
-  height: 48px;
+button {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.3);
+  /* border-radius: 50%; */
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  background-color: transparent;
   color: white;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); */
+  
   transition: background 0.2s, transform 0.1s;
   border: none;
   cursor: pointer;
 }
 
-.control-btn:hover {
-  background-color: #444;
+button > * {
+  /* filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.3)); */
+}
+
+.control-btn {
+  min-width: 36px;
+  padding: 0;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 .control-btn:active {
@@ -170,8 +179,9 @@ canvas {
 
 /* Play/Pause Button - Bigger & White */
 .play-btn {
-  width: 64px;
-  height: 64px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
   background-color: white;
   color: black;
 }

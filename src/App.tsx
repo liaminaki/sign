@@ -120,7 +120,7 @@ function App() {
 
       <div className="ui-container">
         <div className="header">
-          <button className="control-btn">
+          <button>
             <FontAwesomeIcon icon={faArrowLeft} size="lg" />
           </button>
           <div>heAR</div>
