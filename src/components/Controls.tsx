@@ -29,21 +29,32 @@ const Controls: React.FC<ControlsProps> = ({
 
   return (
     <div className="controls-container">
-      <button className="control-btn" onClick={toggleLock}>
-        {isLocked ? <FontAwesomeIcon icon={faLock} size="lg" /> : <FontAwesomeIcon icon={faLockOpen} size="lg" /> }
-      </button>
 
-      <button className="control-btn play-btn" onClick={togglePlay}>
-        {isPlaying ? <FontAwesomeIcon icon={faPause} size="xl" /> : <FontAwesomeIcon icon={faPlay} size="xl" />}
-      </button>
+      <div className="controls-group left-group">
+        <button className="control-btn">
+        </button>
+      </div>
+      
+      <div className="controls-group center-group">
+        <button className="control-btn" onClick={toggleLock}>
+          {isLocked ? <FontAwesomeIcon icon={faLock} size="lg" /> : <FontAwesomeIcon icon={faLockOpen} size="lg" /> }
+        </button>
 
-      <button className="control-btn" onClick={changePlaybackSpeed}>
-        <span>{speedLabels[playbackSpeed]}</span>
-      </button>
+        <button className="control-btn play-btn" onClick={togglePlay}>
+          {isPlaying ? <FontAwesomeIcon icon={faPause} size="xl" /> : <FontAwesomeIcon icon={faPlay} size="xl" />}
+        </button>
 
-      <button className="control-btn" onClick={restart}>
-        <FontAwesomeIcon icon={faRotateLeft} size="lg" />
-      </button>
+        <button className="control-btn" onClick={changePlaybackSpeed}>
+          <span>{speedLabels[playbackSpeed]}</span>
+        </button>
+      </div>
+
+      <div className="controls-group right-group">
+        <button className="control-btn" onClick={restart}>
+          <FontAwesomeIcon icon={faRotateLeft} size="lg" />
+        </button>
+      </div>
+
     </div>
   );
 };
