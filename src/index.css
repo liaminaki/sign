@@ -114,6 +114,7 @@ canvas {
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 84px; /* Width size of snap attribution */
 }
 
 .left-group {
