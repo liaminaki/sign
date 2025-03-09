@@ -3,6 +3,8 @@ import { useCameraKit } from './hooks/useCameraKit';
 import { createMediaStreamSource, Transform2D, Lens } from '@snap/camera-kit';
 import LensCarousel from "./LensCarousel";
 import Controls from "./components/Controls";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const { session, lenses } = useCameraKit();
@@ -119,6 +121,7 @@ function App() {
       <div className="ui-container">
         <div className="header">
           <button className="control-btn">
+            <FontAwesomeIcon icon={faArrowLeft} size="lg" />
           </button>
           <div>heAR</div>
         </div>
