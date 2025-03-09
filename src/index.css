@@ -55,15 +55,15 @@ canvas {
 }
 
 .ui-container > * {
-  margin: 0 1rem;
+  margin: 0 1.5rem;
 }
 
 .ui-container > :first-child {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .ui-container > :last-child {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .ui-container {
