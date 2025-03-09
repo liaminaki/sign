@@ -1,4 +1,5 @@
-import { Lock, Unlock, Play, Pause, RefreshCw} from "lucide-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLock, faLockOpen, faPlay, faPause, faRotateLeft } from '@fortawesome/free-solid-svg-icons';
 
 interface ControlsProps {
   isLocked: boolean;
@@ -11,9 +12,9 @@ interface ControlsProps {
 }
 
 const speedLabels: { [key: number]: string } = {
-  1.0: "Normal",
-  0.5: "Slow",
-  0.25: "Very Slow",
+  1.0: "1.0x",
+  0.5: "0.5x",
+  0.25: "0.25x",
 };
 
 const Controls: React.FC<ControlsProps> = ({
@@ -29,11 +30,11 @@ const Controls: React.FC<ControlsProps> = ({
   return (
     <div className="controls-container">
       <button className="control-btn" onClick={toggleLock}>
-        {isLocked ? <Lock size={20} /> : <Unlock size={20} />}
+        {isLocked ? <FontAwesomeIcon icon={faLock} size="lg" /> : <FontAwesomeIcon icon={faLockOpen} size="lg" /> }
       </button>
 
       <button className="control-btn play-btn" onClick={togglePlay}>
-        {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+        {isPlaying ? <FontAwesomeIcon icon={faPause} size="xl" /> : <FontAwesomeIcon icon={faPlay} size="xl" />}
       </button>
 
       <button className="control-btn" onClick={changePlaybackSpeed}>
@@ -41,7 +42,7 @@ const Controls: React.FC<ControlsProps> = ({
       </button>
 
       <button className="control-btn" onClick={restart}>
-        <RefreshCw size={20} />
+        <FontAwesomeIcon icon={faRotateLeft} size="lg" />
       </button>
     </div>
   );
