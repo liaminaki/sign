@@ -63,6 +63,7 @@ const LensCarousel: React.FC<LensCarouselProps> = ({
       <div className="center-circle"></div>
       {lenses.map((lens, index) => (
         <SwiperSlide
+          title={`Step ${index + 1}`}
           key={lens.id}
           className="lens-item"
           style={{
