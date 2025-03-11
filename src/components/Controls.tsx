@@ -44,7 +44,7 @@ const Controls: React.FC<ControlsProps> = ({
           {isPlaying ? <FontAwesomeIcon icon={faPause} size="xl" /> : <FontAwesomeIcon icon={faPlay} size="xl" />}
         </button>
 
-        <button className="control-btn" onClick={changePlaybackSpeed}>
+        <button className="control-btn speed-btn" onClick={changePlaybackSpeed}>
           <span>{speedLabels[playbackSpeed]}</span>
         </button>
       </div>

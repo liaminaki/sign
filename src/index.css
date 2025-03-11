@@ -185,3 +185,7 @@ button:hover {
   background-color: white;
   color: black;
 }
+
+.speed-btn > * {
+  font-weight: bold;
+}
