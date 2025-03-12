@@ -23,6 +23,16 @@ html, body {
   align-items: center;
 }
 
+h1 {
+  font-size: 6rem;
+  line-height: normal;
+}
+
+p {
+  font-weight: lighter;
+  line-height: 1;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
@@ -73,6 +83,7 @@ canvas {
   transform: translateX(-50%);
   width: 100%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   height: 100vh;
 }
@@ -188,4 +199,10 @@ button:hover {
 
 .speed-btn > * {
   font-weight: bold;
+}
+
+.bg {
+  background-image: url('./assets/img/bg2.png'); /* Adjust the path to your background image */
+  background-size: cover;
+  background-position: center;
 }

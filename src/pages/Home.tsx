@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <h1>Home</h1>
-      <nav>
-        <ul>
-          <li><Link to="/lessons">Lessons</Link></li>
-          <li><Link to="/camera">Camera App</Link></li>
-        </ul>
-      </nav>
+    <div className='app-container bg'>
+        <div className='ui-container'>
+            <h1>he<em>AR</em></h1>
+            <p>
+                Learn Filipino Sign Language <br/>
+                through Augmented Reality
+            </p>
+            <nav>
+                <div><Link to="/lessons">Lessons</Link></div>
+                <div><Link to="/camera">Camera App</Link></div>
+            </nav>
+        </div>
     </div>
   );
 };
