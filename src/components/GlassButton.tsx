@@ -9,12 +9,10 @@ type GlassProps = {
 
 const Glass: React.FC<GlassProps> = ({ onClick, children }) => {
     return (
-        <div className='glass-container'>
-            <button className="glass" onClick={onClick}>
-                <div className="glass-stroke"></div>
-                <div className="glass-content">{children}</div>
-            </button>
-        </div>
+        <button className="glass-card" onClick={onClick}>
+            <div className="glass-stroke"></div>
+            <div className="glass-content">{children}</div>
+        </button>
     );
 };
 

@@ -7,11 +7,9 @@ type GlassProps = {
 
 const Glass: React.FC<GlassProps> = ({ children }) => {
     return (
-        <div className='glass-container'>
-            <div className="glass">
-                <div className="glass-stroke"></div>
-                <div className="glass-content">{children}</div>
-            </div>
+        <div className="glass-card">
+            <div className="glass-stroke"></div>
+            <div className="glass-content">{children}</div>
         </div>
     );
 };

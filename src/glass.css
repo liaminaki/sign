@@ -1,11 +1,5 @@
-.glass-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.glass {
-    min-width: 200px; 
+.glass-card {
+    min-width: 192px; 
     /* width: 100px; */
     height: auto; 
     background-color: rgba(128, 128, 128, 0.3); 
@@ -55,4 +49,9 @@
     pointer-events: none; 
     padding: 1rem;
     mask: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
