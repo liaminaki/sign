@@ -206,3 +206,10 @@ button:hover {
   background-size: cover;
   background-position: center;
 }
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
