@@ -212,4 +212,8 @@ button:hover {
   justify-content: center;
   align-items: center;
   margin: 2rem;
+.lesson-card {
+  width: 192px;
+  height: 208px;
+}
 }

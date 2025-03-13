@@ -1,7 +1,4 @@
 .glass-card {
-    min-width: 192px; 
-    /* width: 100px; */
-    height: auto; 
     background-color: rgba(128, 128, 128, 0.3); 
     backdrop-filter: blur(48px); 
     -webkit-backdrop-filter: blur(48px); 
