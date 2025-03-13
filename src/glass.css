@@ -1,0 +1,58 @@
+.glass-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass {
+    min-width: 200px; 
+    /* width: 100px; */
+    height: auto; 
+    background-color: rgba(128, 128, 128, 0.3); 
+    backdrop-filter: blur(48px); 
+    -webkit-backdrop-filter: blur(48px); 
+    border-radius: 36px; 
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.glass-stroke {
+    position: absolute;  
+    top: 50%;            
+    left: 50%;           
+    transform: translate(-50%, -50%); 
+
+    border: 1.75px solid; 
+    height: 100%; 
+    width: 100%;
+    border-radius: 36px;
+    box-sizing: border-box; 
+
+    mask: linear-gradient(
+        150deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0) 41%,
+        rgba(255, 255, 255, 0) 57%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+
+    -webkit-mask: linear-gradient(
+        150deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0) 41%,
+        rgba(255, 255, 255, 0) 57%,
+        rgba(255, 255, 255, 0.1) 100%
+    );  
+
+}
+
+.glass-content {
+    z-index: 1;           
+    pointer-events: none; 
+    padding: 1rem;
+    mask: white;
+}
