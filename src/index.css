@@ -28,6 +28,12 @@ h1 {
   line-height: normal;
 }
 
+h2 {
+  font-size: 3.75rem;
+  line-height: normal;
+
+}
+
 p {
   font-weight: lighter;
   line-height: 1;
@@ -212,8 +218,17 @@ button:hover {
   justify-content: center;
   align-items: center;
   margin: 2rem;
+}
+
 .lesson-card {
   width: 192px;
   height: 208px;
 }
+
+.lessons-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
