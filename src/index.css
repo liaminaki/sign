@@ -227,8 +227,10 @@ button:hover {
 }
 
 .lesson-card {
-  width: 192px;
-  height: 208px;
+  width: 100%;               
+  max-width: 208px;          
+  min-width: 150px;          
+  aspect-ratio: 192 / 208; 
 }
 
 .lessons-container {
