@@ -8,7 +8,7 @@ type GlassProps = {
     className?: string;
 };
 
-const Glass: React.FC<GlassProps> = ({ onClick, children, className }) => {
+const GlassButton: React.FC<GlassProps> = ({ onClick, children, className }) => {
     return (
         <button className={`glass-card ${className}`} onClick={onClick}>
             <div className="glass-stroke"></div>
@@ -17,4 +17,4 @@ const Glass: React.FC<GlassProps> = ({ onClick, children, className }) => {
     );
 };
 
-export default Glass;
+export default GlassButton;
