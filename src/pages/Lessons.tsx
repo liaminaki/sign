@@ -20,9 +20,9 @@ const Lessons: React.FC = () => {
   };
 
   return (
-    <div className='app-container bg'>
+    <body className='app-container bg'>
       <NavBar backPath="/"/>
-      <div className='ui-container'>
+      <main className='ui-container'>
         <h2>Lessons</h2>
         <div className='lessons-container'>
           {lessons.map((lesson) => (
@@ -36,9 +36,8 @@ const Lessons: React.FC = () => {
             </GlassButton>
           ))}
         </div>
-      </div>
-
-    </div>
+      </main>
+    </body>
   );
 };
 
