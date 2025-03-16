@@ -94,6 +94,12 @@ canvas {
   height: 100vh;
 }
 
+.nav-bar ~ .ui-container {
+  top: 10%;
+  height: auto;
+  justify-content: flex-start;
+}
+
 .header {
   margin-bottom: auto; /* Push carousel and control at bottom*/
   display: flex;
