@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import GlassButton from '../components/GlassButton';
+import NavBar from '../components/NavBar';
 import icon1 from '../assets/img/alphabet.svg';
 import icon2 from '../assets/img/numbers.svg';
 import icon3 from '../assets/img/greetings.svg';
@@ -20,8 +21,8 @@ const Lessons: React.FC = () => {
 
   return (
     <div className='app-container bg'>
+      <NavBar backPath="/"/>
       <div className='ui-container'>
-
         <h2>Lessons</h2>
         <div className='lessons-container'>
           {lessons.map((lesson) => (
