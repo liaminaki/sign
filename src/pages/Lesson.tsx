@@ -43,7 +43,7 @@ const Lesson: React.FC = () => {
           {items.map((item) => (
             <GlassButton 
               key={item.id}
-              className='lessons-card'
+              className='card'
             >
               {item.title}
             </GlassButton>

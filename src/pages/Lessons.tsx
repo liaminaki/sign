@@ -28,7 +28,7 @@ const Lessons: React.FC = () => {
           {lessons.map((lesson) => (
             <GlassButton 
               key={lesson.id}
-              className='lesson-card'
+              className='card'
               onClick={() => {GoTo(lesson.link)}}
             >
               <img src={lesson.icon} alt="icon"/>
