@@ -263,4 +263,21 @@ button:hover {
   color: white;
   text-decoration: none;
 }
+
+.lesson-header {
+  text-align: left;
+}
+
+.lesson-title {
+  margin: 0;
+}
+
+.lesson-desc {
+  width: 75%;
+}
+
+.signs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+  gap: 1rem; 
 }
