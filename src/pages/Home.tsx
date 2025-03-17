@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import GlassButton from '../components/GlassButton';
+import ModelViewer from '../components/ModelViewer';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const Home: React.FC = () => {
                 <div><Link to="/lessons">Lessons</Link></div>
                 <div><Link to="/camera">Camera App</Link></div>
             </nav>
+            <ModelViewer></ModelViewer>
         </section>
     </main>
   );
