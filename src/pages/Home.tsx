@@ -10,8 +10,8 @@ const Home: React.FC = () => {
   };
   
   return (
-    <body className='app-container bg'>
-        <main className='ui-container'>
+    <main className='app-container bg'>
+        <section className='ui-container'>
             <h1>he<em>AR</em></h1>
             <p>
                 Learn Filipino Sign Language <br/>
@@ -28,8 +28,8 @@ const Home: React.FC = () => {
                 <div><Link to="/lessons">Lessons</Link></div>
                 <div><Link to="/camera">Camera App</Link></div>
             </nav>
-        </main>
-    </body>
+        </section>
+    </main>
   );
 };
 

@@ -115,10 +115,10 @@ const CameraApp: React.FC = () => {
   };
 
   return (
-    <body className="app-container">
+    <main className="app-container">
       <div ref={canvasContainerRef}></div>
 
-      <main className="ui-container">
+      <section className="ui-container">
         <div className="header">
           <button title='Back to Lesson'>
             <FontAwesomeIcon icon={faArrowLeft} size="lg" />
@@ -140,9 +140,9 @@ const CameraApp: React.FC = () => {
           changePlaybackSpeed={changePlaybackSpeed}
           restart={restart}
         />
-      </main>
+      </section>
       
-    </body>
+    </main>
   );
 }
 

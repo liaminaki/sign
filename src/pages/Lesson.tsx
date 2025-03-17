@@ -27,9 +27,9 @@ const Lesson: React.FC = () => {
   ];
 
   return (
-    <div className='app-container bg'>
+    <main className='app-container bg'>
       <NavBar backPath="/Lessons"/>
-      <main className='ui-container'>
+      <section className='ui-container'>
         <header className='lesson-header'>
           <h2 className='lesson-title'>Lesson {id}</h2>
           <p className='lesson-desc'>
@@ -49,8 +49,8 @@ const Lesson: React.FC = () => {
             </GlassButton>
           ))}
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 };
 
