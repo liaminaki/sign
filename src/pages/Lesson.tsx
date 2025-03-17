@@ -1,4 +1,6 @@
 import React from 'react';
+import Spline from '@splinetool/react-spline';
+
 import { useParams } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import GlassButton from '../components/GlassButton';
@@ -45,6 +47,9 @@ const Lesson: React.FC = () => {
               key={item.id}
               className='card'
             >
+              <div>
+                <Spline scene="https://prod.spline.design/D68MuuDdAI5iWLDQ/scene.splinecode" />
+              </div> 
               {item.title}
             </GlassButton>
           ))}

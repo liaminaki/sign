@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import GlassButton from '../components/GlassButton';
+import Spline from '@splinetool/react-spline';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Home: React.FC = () => {
   };
   
   return (
-    <body className='app-container bg'>
+    <div className='app-container bg'>
         <main className='ui-container'>
             <h1>he<em>AR</em></h1>
             <p>
@@ -28,8 +29,11 @@ const Home: React.FC = () => {
                 <div><Link to="/lessons">Lessons</Link></div>
                 <div><Link to="/camera">Camera App</Link></div>
             </nav>
+            <div className='object'>
+              <Spline scene="https://prod.spline.design/D68MuuDdAI5iWLDQ/scene.splinecode" />
+            </div>
         </main>
-    </body>
+    </div>
   );
 };
 
