@@ -21,8 +21,8 @@
 
 .close-button {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 0.25%;
+    right: 0.25%;
     width: auto !important;
     color: gray;
 }
