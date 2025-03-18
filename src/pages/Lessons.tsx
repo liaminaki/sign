@@ -32,7 +32,7 @@ const Lessons: React.FC = () => {
               onClick={() => {GoTo(lesson.link)}}
             >
               <img src={lesson.icon} alt="icon"/>
-              <div>{lesson.title}</div>
+              <p>{lesson.title}</p>
             </GlassButton>
           ))}
         </div>
