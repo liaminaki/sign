@@ -278,6 +278,17 @@ button:hover {
 
 .signs-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(208px, 1fr)); 
   gap: 1rem; 
+}
+
+.signs-container > .card {
+  max-width: none;
+}
+
+@media (max-width: 600px) {
+  .signs-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 1rem;
+  }
 }
