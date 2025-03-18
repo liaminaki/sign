@@ -43,7 +43,7 @@
 }
 
 .glass-content {
-    pointer-events: none; 
+    /* pointer-events: none;  */
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
