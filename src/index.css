@@ -109,15 +109,16 @@ canvas {
 .lens-carousel-container {
   /* background: rgba(0, 0, 0, 0.3); /* Optional: for better visibility */
   /* border-radius: 20px;  */
-  padding: 24px 0;
+  padding: 24px 0 !important;
+  width: 100%;
 }
 
 .lens-item {
   width: 24px !important;
-  height: 24px;
-  display: flex;
+  height: 24px !important;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   border: white 2px solid;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.2);
