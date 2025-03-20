@@ -6,13 +6,13 @@ import GlassButton from '../components/GlassButton';
 const Lesson: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const items = [
-    { id: 1, title: 'Item 1' },
-    { id: 2, title: 'Item 2' },
-    { id: 3, title: 'Item 3' },
-    { id: 4, title: 'Item 4' },
-    { id: 5, title: 'Item 5' },
-    { id: 6, title: 'Item 6' },
-    { id: 7, title: 'Item 7' },
+    { id: 1, title: 'A' },
+    { id: 2, title: 'B' },
+    { id: 3, title: 'C' },
+    { id: 4, title: 'D' },
+    { id: 5, title: 'E' },
+    { id: 6, title: 'F' },
+    { id: 7, title: 'G' },
     { id: 8, title: 'Item 8' },
     { id: 9, title: 'Item 9' },
     { id: 10, title: 'Item 10' },
@@ -45,7 +45,12 @@ const Lesson: React.FC = () => {
               key={item.id}
               className='card'
             >
-              {item.title}
+              <model-viewer
+                src="./RobotExpressive.glb"
+                autoplay
+                shadow-intensity="1"
+              ></model-viewer>
+              <p>{item.title}</p>
             </GlassButton>
           ))}
         </div>
