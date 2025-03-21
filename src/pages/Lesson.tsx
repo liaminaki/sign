@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import GlassButton from '../components/GlassButton';
+import Modal from '../components/Modal';
 
 const Lesson: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalOpen = () => setIsModalOpen(true);
+  const handleModalClose = () => setIsModalOpen(false);
+
   const items = [
     { id: 1, title: 'A' },
     { id: 2, title: 'B' },
@@ -44,6 +50,7 @@ const Lesson: React.FC = () => {
             <GlassButton 
               key={item.id}
               className='card'
+              onClick={handleModalOpen}
             >
               <model-viewer
                 src="./RobotExpressive.glb"
@@ -55,6 +62,7 @@ const Lesson: React.FC = () => {
           ))}
         </div>
       </section>
+      {isModalOpen && <Modal onClose={handleModalClose} src={"./RobotExpressive.glb"} />}
     </main>
   );
 };
