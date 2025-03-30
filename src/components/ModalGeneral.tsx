@@ -12,7 +12,7 @@ interface ModalProps {
 const ModalGeneral: React.FC<ModalProps> = ({ children, onClose }) => {
     return (
         <div className='modal-overlay' onClick={onClose}>
-            <Glass className='modal-content' onClick={(e) => e.stopPropagation()}>
+            <Glass className='modal-content material-modal-content' onClick={(e) => e.stopPropagation()}>
                 <button className='close-button' onClick={onClose}>
                     <FontAwesomeIcon icon={faXmark} size="lg" />
                 </button>
