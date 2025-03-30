@@ -6,6 +6,15 @@ import Controls from "../components/Controls";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faPalette } from '@fortawesome/free-solid-svg-icons';
 import ModalGeneral from '../components/ModalGeneral';
+import hologram1 from "../assets/img/hologram1.png";
+import hologram2 from "../assets/img/hologram2.png";
+import normal from "../assets/img/normal.png";
+
+const materialImages: Record<string, string> = {
+  "Hologram 1": hologram1,
+  "Hologram 2": hologram2,
+  "Normal": normal,
+};
 
 const CameraApp: React.FC = () => {
   const { session, lenses } = useCameraKit();
@@ -17,6 +26,7 @@ const CameraApp: React.FC = () => {
   const [autoSlide, setAutoSlide] = useState(false); // Determine need to force switch lens either due to autoplay or restart
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isTextureModalOpen, setIsTextureModalOpen] = useState(false);
+  const [materialType, setMaterialType] = useState("Hologram 1");
   
   const handleTextureModalOpen = () => setIsTextureModalOpen(true);
   const handleTextureModalClose = () => setIsTextureModalOpen(false);
@@ -152,7 +162,19 @@ const CameraApp: React.FC = () => {
 
       {isTextureModalOpen &&
         <ModalGeneral onClose={handleTextureModalClose}>
-          <p>3D Visual Texture</p>
+          <p className="material-modal-title">3D Visual Texture</p>
+          <div className="material-selection">
+            {["Hologram 1", "Hologram 2", "Normal"].map((type) => (
+              <div
+                key={type}
+                className={`material-option ${materialType === type ? "selected" : ""}`}
+                onClick={() => setMaterialType(type)}
+              >
+                <img src={materialImages[type]} alt={type} />
+                <p>{type}</p>
+              </div>
+            ))}
+          </div>
         </ModalGeneral>
       }
       
