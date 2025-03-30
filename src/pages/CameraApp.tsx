@@ -4,7 +4,8 @@ import { createMediaStreamSource, Transform2D, Lens } from '@snap/camera-kit';
 import LensCarousel from "../LensCarousel";
 import Controls from "../components/Controls";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faPalette } from '@fortawesome/free-solid-svg-icons';
+import ModalGeneral from '../components/ModalGeneral';
 
 const CameraApp: React.FC = () => {
   const { session, lenses } = useCameraKit();
@@ -15,6 +16,10 @@ const CameraApp: React.FC = () => {
   const [playbackSpeed, setPlaybackSpeed] = useState(1.0);
   const [autoSlide, setAutoSlide] = useState(false); // Determine need to force switch lens either due to autoplay or restart
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [isTextureModalOpen, setIsTextureModalOpen] = useState(false);
+  
+  const handleTextureModalOpen = () => setIsTextureModalOpen(true);
+  const handleTextureModalClose = () => setIsTextureModalOpen(false);
 
   const startCameraKit = useCallback(async () => {
     const mediaStream = await navigator.mediaDevices.getUserMedia({
@@ -124,6 +129,9 @@ const CameraApp: React.FC = () => {
             <FontAwesomeIcon icon={faArrowLeft} size="lg" />
           </button>
           <div>heAR</div>
+          <button title='Texture' onClick={handleTextureModalOpen}>
+            <FontAwesomeIcon icon={faPalette} size="lg" />
+          </button>
         </div>
         <LensCarousel
           selectedLens={selectedLens} 
@@ -141,6 +149,12 @@ const CameraApp: React.FC = () => {
           restart={restart}
         />
       </section>
+
+      {isTextureModalOpen &&
+        <ModalGeneral onClose={handleTextureModalClose}>
+          <p>3D Visual Texture</p>
+        </ModalGeneral>
+      }
       
     </main>
   );
