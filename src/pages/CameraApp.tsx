@@ -117,7 +117,7 @@ const CameraApp: React.FC = () => {
   return (
     <main className="app-container">
       <div ref={canvasContainerRef}></div>
-
+      <div className="gradient-black"></div>
       <section className="ui-container">
         <div className="header">
           <button title='Back to Lesson'>
