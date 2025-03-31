@@ -103,6 +103,7 @@ const CameraApp: React.FC = () => {
         launchParams: {
           "isPlaying": isPlaying ? "true" : "false",
           "playbackSpeed": playbackSpeed,
+          "materialType": materialType,
         },
       });
 
