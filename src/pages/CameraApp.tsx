@@ -57,7 +57,7 @@ const CameraApp: React.FC = () => {
     if (isPlaying && !isLocked) {
       switchToNextLens();
     }
-  }, [selectedLens, session, lenses, isPlaying, isLocked]);
+  }, [selectedLens, session, lenses, isPlaying, isLocked, materialType]);
 
   // Attach CameraKit's output to the DOM
   useEffect(() => {
