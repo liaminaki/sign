@@ -18,9 +18,10 @@ const materialImages: Record<string, string> = {
 };
 
 const createSteps = (title: string, steps: number, isStatic: boolean, duration: number | number[] | null) => {
-  return Array.from({ length: steps }, (_, index) => ({
-    title: steps > 1 ? `${title.toLowerCase()}_${index + 1}` : `${title.toLowerCase()}`,
-    duration: isStatic ? null : (Array.isArray(duration) ? duration[index] : duration)
+  return Array.from({ length: steps }, (_, i) => ({
+    index: i,
+    title: steps > 1 ? `${title.toLowerCase()}_${i + 1}` : `${title.toLowerCase()}`,
+    duration: isStatic ? null : (Array.isArray(duration) ? duration[i] : duration)
   }))
 };
 
@@ -35,7 +36,8 @@ const CameraApp: React.FC = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isTextureModalOpen, setIsTextureModalOpen] = useState(false);
   const [materialType, setMaterialType] = useState("Hologram 1");
-  const [currentStep, setCurrentStep] = useState<{ title: string; duration: number | null }>({
+  const [currentStep, setCurrentStep] = useState<{ index: number, title: string; duration: number | null }>({
+    index: 0,
     title: "Default",
     duration: null,
   });
