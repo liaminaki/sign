@@ -7,9 +7,11 @@ import '../modal.css';
 interface ModalProps {
     onClose: () => void;
     src: string;
+    onPractice: () => void;
+    title: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ onClose, src }) => {
+const Modal: React.FC<ModalProps> = ({ onClose, src, title, onPractice }) => {
     return (
         <div className='modal-overlay' onClick={onClose}>
             <Glass className='modal-content' onClick={(e) => e.stopPropagation()}>
@@ -23,8 +25,8 @@ const Modal: React.FC<ModalProps> = ({ onClose, src }) => {
                     shadow-intensity="1"
                     style={{ width: '100%', height: '300px' }}
                 ></model-viewer>
-                <p>More details about the item go here.</p>
-                <button className='action-button'>Practice</button>
+                <p>{title}</p>
+                <button className='action-button' onClick={onPractice}>Practice</button>
             </Glass>
         </div>
     );
