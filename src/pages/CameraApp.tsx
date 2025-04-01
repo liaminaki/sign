@@ -50,6 +50,7 @@ const CameraApp: React.FC = () => {
 
     session.setSource(source);
     setSelectedLens(lenses[0].id); // Set default lens state
+    selectLens();
     session.play('live');
   }, [session, lenses]);
 
@@ -79,6 +80,15 @@ const CameraApp: React.FC = () => {
       timeoutRef.current = null;
     }
   }, [isPlaying, isLocked]);
+
+  const selectLens = () => {
+    const lens = lenses.find((l) => l.name === selectedSign.set);
+    if (lens) {
+      setSelectedLens(lens.id);
+    } else {
+      console.error(`Lens with name ${selectedSign.set} not found`);
+    }
+  }
 
   const getLensDuration = (lens: Lens): number => {
     const duration = parseFloat(lens.vendorData?.duration);
