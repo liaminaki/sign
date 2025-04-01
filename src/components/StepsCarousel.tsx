@@ -3,7 +3,7 @@ import { useCameraKit } from "../hooks/useCameraKit";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-interface LensCarouselProps {
+interface StepsCarouselProps {
   selectedLens: string | null;
   setSelectedLens: (lensId: string) => void;
   setIsPlaying: (isPlaying: boolean) => void;
@@ -11,7 +11,7 @@ interface LensCarouselProps {
   setAutoSlide: (autoSlide: boolean) => void;
 }
 
-const LensCarousel: React.FC<LensCarouselProps> = ({ 
+const StepsCarousel: React.FC<StepsCarouselProps> = ({ 
   selectedLens, 
   setSelectedLens,
   setIsPlaying,
@@ -80,4 +80,4 @@ const LensCarousel: React.FC<LensCarouselProps> = ({
   );
 }
 
-export default LensCarousel;
+export default StepsCarousel;
