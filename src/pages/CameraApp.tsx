@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate} from 'react-router-dom';
 import { useCameraKit } from '../hooks/useCameraKit';
 import { createMediaStreamSource, Transform2D, Lens } from '@snap/camera-kit';
-import LensCarousel from "../LensCarousel";
+import LensCarousel from "../components/LensCarousel";
 import Controls from "../components/Controls";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faPalette } from '@fortawesome/free-solid-svg-icons';

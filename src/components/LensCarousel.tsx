@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useCameraKit } from "./hooks/useCameraKit";
+import { useCameraKit } from "../hooks/useCameraKit";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
