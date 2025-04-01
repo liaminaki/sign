@@ -170,8 +170,9 @@ const CameraApp: React.FC = () => {
           </button>
         </div>
         <StepsCarousel
-          selectedLens={selectedLens} 
-          setSelectedLens={setSelectedLens}
+          steps={steps}
+          currentStep={currentStep}
+          setCurrentStep={setCurrentStep}
           setIsPlaying={setIsPlaying} 
           autoSlide={autoSlide}
           setAutoSlide={setAutoSlide}
