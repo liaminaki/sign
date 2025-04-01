@@ -151,7 +151,7 @@ const CameraApp: React.FC = () => {
   };
   const restart = () => {
     setAutoSlide(true);
-    setSelectedLens(lenses[0].id); // Reset to the first lens
+    setCurrentStep(steps[0]); // Reset to the first step
     setIsPlaying(false);
   };
 
