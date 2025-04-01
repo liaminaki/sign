@@ -36,7 +36,7 @@ const CameraApp: React.FC = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isTextureModalOpen, setIsTextureModalOpen] = useState(false);
   const [materialType, setMaterialType] = useState("Hologram 1");
-  const [currentStep, setCurrentStep] = useState<{ index: number, title: string; duration: number | null }>({
+  const [currentStep, setCurrentStep] = useState<{ index: number, title: string, duration: number | null }>({
     index: 0,
     title: "Default",
     duration: null,
