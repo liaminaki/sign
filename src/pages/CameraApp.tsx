@@ -105,17 +105,15 @@ const CameraApp: React.FC = () => {
   }
 
   const switchToNextLens = () => {
-    const lens = lenses.find((l) => l.id === selectedLens);
-    if (lens) {
+    if (selectedLens) {
       const duration = currentStep.duration ?? 2.0;
 
       // Wait for the duration before switching to the next lens
       // Cleared when isPlaying becomes false
       timeoutRef.current = setTimeout(() => {
-        const currentIndex = lenses.findIndex((l) => l.id === selectedLens);
-        const nextIndex = (currentIndex + 1) % lenses.length;
+        const nextIndex = (currentStep.index + 1) % steps.length;
         setAutoSlide(true);
-        setSelectedLens(lenses[nextIndex].id);
+        setCurrentStep(steps[nextIndex]);
       }, duration / playbackSpeed * 1000);
     }
   };
