@@ -17,6 +17,13 @@ const materialImages: Record<string, string> = {
   "Normal": normal,
 };
 
+const createSteps = (title: string, steps: number, isStatic: boolean, duration: number | number[] | null) => {
+  return Array.from({ length: steps }, (_, index) => ({
+    title: steps > 1 ? `${title.toLowerCase()}_${index + 1}` : `${title.toLowerCase()}`,
+    duration: isStatic ? null : (Array.isArray(duration) ? duration[index] : duration)
+  }))
+};
+
 const CameraApp: React.FC = () => {
   const { session, lenses } = useCameraKit();
   const canvasContainerRef = useRef<HTMLDivElement>(null);
@@ -32,6 +39,7 @@ const CameraApp: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { selectedSign } = location.state || {}; // Access selectedSign data
+  const steps = createSteps(selectedSign.title, selectedSign.steps, selectedSign.isStatic, selectedSign.duration);
   
   console.log(selectedSign); // Check the passed data
   
