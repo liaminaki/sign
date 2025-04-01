@@ -102,15 +102,10 @@ const CameraApp: React.FC = () => {
     }
   }
 
-  const getLensDuration = (lens: Lens): number => {
-    const duration = parseFloat(lens.vendorData?.duration);
-    return isNaN(duration) ? 2.0 : duration;
-  };
-
   const switchToNextLens = () => {
     const lens = lenses.find((l) => l.id === selectedLens);
     if (lens) {
-      const duration = getLensDuration(lens);
+      const duration = currentStep.duration ?? 2.0;
 
       // Wait for the duration before switching to the next lens
       // Cleared when isPlaying becomes false
