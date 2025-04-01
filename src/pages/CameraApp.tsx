@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useLocation} from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
 import { useCameraKit } from '../hooks/useCameraKit';
 import { createMediaStreamSource, Transform2D, Lens } from '@snap/camera-kit';
 import LensCarousel from "../LensCarousel";
@@ -28,6 +28,8 @@ const CameraApp: React.FC = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isTextureModalOpen, setIsTextureModalOpen] = useState(false);
   const [materialType, setMaterialType] = useState("Hologram 1");
+
+  const navigate = useNavigate();
   const location = useLocation();
   const { selectedSign } = location.state || {}; // Access selectedSign data
   
@@ -141,7 +143,7 @@ const CameraApp: React.FC = () => {
       <div className="gradient-black"></div>
       <section className="ui-container">
         <div className="header">
-          <button title='Back to Lesson'>
+          <button title='Back to Lesson' onClick={() => navigate(-1)}>
             <FontAwesomeIcon icon={faArrowLeft} size="lg" />
           </button>
           <div>heAR</div>
