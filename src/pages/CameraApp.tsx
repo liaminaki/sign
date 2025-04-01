@@ -179,6 +179,7 @@ const CameraApp: React.FC = () => {
         <Controls isLocked={isLocked}
           isPlaying={isPlaying}
           playbackSpeed={playbackSpeed}
+          isStatic={selectedSign.isStatic}
           toggleLock={toggleLock}
           togglePlay={togglePlay}
           changePlaybackSpeed={changePlaybackSpeed}

@@ -6,6 +6,7 @@ interface ControlsProps {
   isLocked: boolean;
   isPlaying: boolean;
   playbackSpeed: number;
+  isStatic: boolean;
   toggleLock: () => void;
   togglePlay: () => void;
   changePlaybackSpeed: () => void;
@@ -22,6 +23,7 @@ const Controls: React.FC<ControlsProps> = ({
   isLocked,
   isPlaying,
   playbackSpeed,
+  isStatic,
   toggleLock,
   togglePlay,
   changePlaybackSpeed,
@@ -35,36 +37,40 @@ const Controls: React.FC<ControlsProps> = ({
         <img src={snapAttribution} alt="Snap Attribution" className="custom-icon" />
       </div>
       
-      <div className="controls-group center-group">
-        <button
-          title={isLocked ? "Unlock Step" : "Repeat Step"} 
-          className="control-btn"
-          onClick={toggleLock}
-        >
-          {isLocked ? <FontAwesomeIcon icon={faLock} size="lg" /> : <FontAwesomeIcon icon={faLockOpen} size="lg" /> }
-        </button>
+      {!isStatic && (
+        <>
+          <div className="controls-group center-group">
+            <button
+              title={isLocked ? "Unlock Step" : "Repeat Step"} 
+              className="control-btn"
+              onClick={toggleLock}
+            >
+              {isLocked ? <FontAwesomeIcon icon={faLock} size="lg" /> : <FontAwesomeIcon icon={faLockOpen} size="lg" /> }
+            </button>
 
-        <button
-          title={isPlaying ? "Pause" : "Play"}
-          className="control-btn play-btn"
-          onClick={togglePlay}>
-          {isPlaying ? <FontAwesomeIcon icon={faPause} size="xl" /> : <FontAwesomeIcon icon={faPlay} size="xl" />}
-        </button>
+            <button
+              title={isPlaying ? "Pause" : "Play"}
+              className="control-btn play-btn"
+              onClick={togglePlay}>
+              {isPlaying ? <FontAwesomeIcon icon={faPause} size="xl" /> : <FontAwesomeIcon icon={faPlay} size="xl" />}
+            </button>
 
-        <button 
-          title={`Playback Speed: ${speedLabels[playbackSpeed].split(' ').slice(1).join(' ')}`} 
-          className="control-btn speed-btn" 
-          onClick={changePlaybackSpeed}
-        >
-          <span>{speedLabels[playbackSpeed].split(' ')[0]}</span>
-        </button>
-      </div>
+            <button 
+              title={`Playback Speed: ${speedLabels[playbackSpeed].split(' ').slice(1).join(' ')}`} 
+              className="control-btn speed-btn" 
+              onClick={changePlaybackSpeed}
+            >
+              <span>{speedLabels[playbackSpeed].split(' ')[0]}</span>
+            </button>
+          </div>
 
-      <div className="controls-group right-group">
-        <button title='Restart' onClick={restart}>
-          <FontAwesomeIcon icon={faRotateLeft} size="lg" />
-        </button>
-      </div>
+          <div className="controls-group right-group">
+            <button title='Restart' onClick={restart}>
+              <FontAwesomeIcon icon={faRotateLeft} size="lg" />
+            </button>
+          </div>
+        </>
+      )}
 
     </div>
   );
