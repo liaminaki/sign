@@ -35,7 +35,10 @@ const CameraApp: React.FC = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isTextureModalOpen, setIsTextureModalOpen] = useState(false);
   const [materialType, setMaterialType] = useState("Hologram 1");
-  const [signTitle, setSignTitle] = useState("Default");
+  const [currentStep, setCurrentStep] = useState<{ title: string; duration: number | null }>({
+    title: "Default",
+    duration: null,
+  });
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -59,7 +62,7 @@ const CameraApp: React.FC = () => {
 
     session.setSource(source);
     selectLens();
-    setSignTitle(steps[0].title);
+    setCurrentStep(steps[0]);
     session.play('live');
   }, [session, lenses]);
 
@@ -74,7 +77,7 @@ const CameraApp: React.FC = () => {
     if (isPlaying && !isLocked) {
       switchToNextLens();
     }
-  }, [selectedLens, session, lenses, isPlaying, isLocked, materialType, signTitle]);
+  }, [selectedLens, session, lenses, isPlaying, isLocked, materialType, currentStep]);
 
   // Attach CameraKit's output to the DOM
   useEffect(() => {
@@ -130,7 +133,7 @@ const CameraApp: React.FC = () => {
           "isPlaying": isPlaying ? "true" : "false",
           "playbackSpeed": playbackSpeed,
           "materialType": materialType,
-          "signTitle": signTitle,
+          "signTitle": currentStep.title,
         },
       });
 
