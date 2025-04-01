@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useLocation} from 'react-router-dom';
 import { useCameraKit } from '../hooks/useCameraKit';
 import { createMediaStreamSource, Transform2D, Lens } from '@snap/camera-kit';
 import LensCarousel from "../LensCarousel";
@@ -27,6 +28,10 @@ const CameraApp: React.FC = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isTextureModalOpen, setIsTextureModalOpen] = useState(false);
   const [materialType, setMaterialType] = useState("Hologram 1");
+  const location = useLocation();
+  const { selectedSign } = location.state || {}; // Access selectedSign data
+  
+  console.log(selectedSign); // Check the passed data
   
   const handleTextureModalOpen = () => setIsTextureModalOpen(true);
   const handleTextureModalClose = () => setIsTextureModalOpen(false);
