@@ -169,14 +169,16 @@ const CameraApp: React.FC = () => {
             <FontAwesomeIcon icon={faPalette} size="lg" />
           </button>
         </div>
-        <StepsCarousel
-          steps={steps}
-          currentStep={currentStep}
-          setCurrentStep={setCurrentStep}
-          setIsPlaying={setIsPlaying} 
-          autoSlide={autoSlide}
-          setAutoSlide={setAutoSlide}
-        />
+        {selectedSign.steps > 1 && (
+          <StepsCarousel
+            steps={steps}
+            currentStep={currentStep}
+            setCurrentStep={setCurrentStep}
+            setIsPlaying={setIsPlaying} 
+            autoSlide={autoSlide}
+            setAutoSlide={setAutoSlide}
+          />
+        )}
         <Controls isLocked={isLocked}
           isPlaying={isPlaying}
           playbackSpeed={playbackSpeed}
