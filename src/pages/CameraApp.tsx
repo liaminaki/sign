@@ -14,7 +14,7 @@ import normal from "../assets/img/normal.png";
 const materialImages: Record<string, string> = {
   "Hologram 1": hologram1,
   "Hologram 2": hologram2,
-  "Normal": normal,
+  "Materials/Normal": normal,
 };
 
 const createSteps = (title: string, steps: number, isStatic: boolean, duration: number | number[] | null) => {
@@ -199,14 +199,14 @@ const CameraApp: React.FC = () => {
         <ModalGeneral onClose={handleTextureModalClose}>
           <p className="material-modal-title">3D Visual Texture</p>
           <div className="material-selection">
-            {["Hologram 1", "Hologram 2", "Normal"].map((type) => (
+            {["Hologram 1", "Hologram 2", "Materials/Normal"].map((type) => (
               <div
                 key={type}
                 className={`material-option ${materialType === type ? "selected" : ""}`}
                 onClick={() => setMaterialType(type)}
               >
                 <img src={materialImages[type]} alt={type} />
-                <p>{type}</p>
+                <p>{type === "Materials/Normal" ? "Normal" : type}</p>
               </div>
             ))}
           </div>
