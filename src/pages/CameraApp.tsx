@@ -53,9 +53,14 @@ const CameraApp: React.FC = () => {
   const handleTextureModalClose = () => setIsTextureModalOpen(false);
 
   const startCameraKit = useCallback(async () => {
+    const isPortrait = window.innerHeight > window.innerWidth;
     const mediaStream = await navigator.mediaDevices.getUserMedia({
-      video: true,
-      /* Additional options like resolution, frame rate and facing mode can be set here*/
+      video: {
+        width: { ideal: isPortrait ? 1080 : 1920 },  
+        height: { ideal: isPortrait ? 1920 : 1080 }, 
+        frameRate: { ideal: 30, max: 60 },
+        facingMode: { ideal: "user" },
+      }
     });
 
     const source = createMediaStreamSource(mediaStream, {
