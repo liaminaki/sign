@@ -13,9 +13,13 @@ const Home: React.FC = () => {
     <main className='app-container bg'>
         <section className='ui-container'>
             <h1>he<em>AR</em></h1>
-            <p>
-                Learn Filipino Sign Language <br/>
-                through Augmented Reality
+            <p className='tagline'>
+              Redefining what it means to hear— <br/>
+              bridging communication with the Deaf <br/>
+              through learning Filipino Sign Language <br/>
+              with Augmented Reality <br/><br/>
+
+              <em>Hear!&emsp;Hear!&emsp;Here!</em>  <br/>
             </p>
 
             <div className='cta'>
