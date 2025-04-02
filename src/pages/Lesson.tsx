@@ -43,6 +43,7 @@ const Lesson: React.FC = () => {
                 src={item.model}
                 autoplay
                 shadow-intensity="1"
+                environment-image="legacy"
               ></model-viewer>
               <p>{item.title}</p>
             </GlassButton>
