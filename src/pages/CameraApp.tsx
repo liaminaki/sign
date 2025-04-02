@@ -169,7 +169,7 @@ const CameraApp: React.FC = () => {
           <button title='Back to Lesson' onClick={() => navigate(-1)}>
             <FontAwesomeIcon icon={faArrowLeft} size="lg" />
           </button>
-          <div>heAR</div>
+          <div>{selectedSign.title}</div>
           <button title='Texture' onClick={handleTextureModalOpen}>
             <FontAwesomeIcon icon={faPalette} size="lg" />
           </button>
