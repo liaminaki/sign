@@ -23,20 +23,6 @@ const Home: React.FC = () => {
                     Start Now
                 </GlassButton>
             </div>
-
-            <nav>
-                <div><Link to="/lessons">Lessons</Link></div>
-                <div><Link to="/camera">Camera App</Link></div>
-            </nav>
-            <model-viewer
-              src="./hand-r.glb"
-              auto-rotate
-              camera-controls
-              disable-zoom
-              style={{ width: '100%', height: '500px' }}
-              autoplay
-              shadow-intensity="1"
-            ></model-viewer>
         </section>
     </main>
   );
