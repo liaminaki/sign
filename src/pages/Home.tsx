@@ -19,7 +19,7 @@ const Home: React.FC = () => {
               through learning Filipino Sign Language <br/>
               with Augmented Reality <br/><br/>
 
-              <em>Hear!&emsp;Hear!&emsp;Here!</em>  <br/>
+              {/* <em>Hear!&emsp;Hear!&emsp;Here!</em>  <br/> */}
             </p>
 
             <div className='cta'>
