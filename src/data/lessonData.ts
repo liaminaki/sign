@@ -43,8 +43,16 @@ const lessonData = {
       description: "This is a description for numbers",
       icon: numbersIcon,
       signs: [
-        { title: "1", set: "numbers", model: "/models/numbers/1.glb", isStatic: false, steps: 1, duration: 2.5 },
-        { title: "2", set: "numbers", model: "/models/numbers/2.glb", isStatic: false, steps: 2, duration: [1.8, 2.2] },
+        { title: "1", set: "Numbers", model: "/numbers/1.glb", isStatic: false, steps: 1 },
+        { title: "2", set: "Numbers", model: "/numbers/2.glb", isStatic: false, steps: 1 },
+        { title: "3", set: "Numbers", model: "/numbers/3.glb", isStatic: false, steps: 1 },
+        { title: "4", set: "Numbers", model: "/numbers/4.glb", isStatic: false, steps: 1 },
+        { title: "5", set: "Numbers", model: "/numbers/5.glb", isStatic: false, steps: 1 },
+        { title: "6", set: "Numbers", model: "/numbers/6.glb", isStatic: false, steps: 1 },
+        { title: "7", set: "Numbers", model: "/numbers/7.glb", isStatic: false, steps: 1 },
+        { title: "8", set: "Numbers", model: "/numbers/8.glb", isStatic: false, steps: 1 },
+        { title: "9", set: "Numbers", model: "/numbers/9.glb", isStatic: false, steps: 1 },
+        { title: "10", set: "Numbers", model: "/numbers/10.glb", isStatic: false, steps: 1 },
       ],
     },
     greetings: {
@@ -53,8 +61,8 @@ const lessonData = {
         description: "This is a description for greetings",
         icon: greetingsIcon,
         signs: [
-          { title: "Hello", set: "greetings", model: "/models/greetings/hello.glb", isStatic: false, steps: 1, duration: 2 },
-          { title: "Goodbye", set: "greetings", model: "/models/greetings/goodbye.glb", isStatic: false, steps: 1, duration: 2 },
+          { title: "you-how", set: "Greetings", model: "/greetings/you-how.glb", isStatic: false, steps: 2, duration: [1.34, 1.2] },
+          { title: "[TEST] Feedback", set: "Hand Gestures", model: "/alphabet/a.glb", isStatic: true, steps: 1 },
         ],
     },
   };
