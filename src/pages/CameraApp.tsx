@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate} from 'react-router-dom';
 import { useCameraKit } from '../hooks/useCameraKit';
-import { createMediaStreamSource, Transform2D, Lens } from '@snap/camera-kit';
+import { createMediaStreamSource, Transform2D} from '@snap/camera-kit';
 import StepsCarousel from "../components/StepsCarousel";
 import Controls from "../components/Controls";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
