@@ -22,7 +22,7 @@ const Modal: React.FC<ModalProps> = ({ onClose, src, title, onPractice }) => {
                     src={src}
                     camera-controls
                     autoplay
-                    disable-zoom
+                    // disable-zoom
                     shadow-intensity="1"
                     style={{ width: '100%', height: '300px' }}
                     environment-image="legacy"
