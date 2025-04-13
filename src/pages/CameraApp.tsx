@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate} from 'react-router-dom';
 import { useCameraKit } from '../hooks/useCameraKit';
-import { createMediaStreamSource, Transform2D, Lens } from '@snap/camera-kit';
+import { createMediaStreamSource, Transform2D} from '@snap/camera-kit';
 import StepsCarousel from "../components/StepsCarousel";
 import Controls from "../components/Controls";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -56,8 +56,7 @@ const CameraApp: React.FC = () => {
     const isPortrait = window.innerHeight > window.innerWidth;
     const mediaStream = await navigator.mediaDevices.getUserMedia({
       video: {
-        width: { ideal: isPortrait ? 1080 : 1920 },  
-        height: { ideal: isPortrait ? 1920 : 1080 }, 
+        ...(!isPortrait && { width: { ideal: 1920 }, height: { ideal: 1920 } }),
         frameRate: { ideal: 30, max: 60 },
         facingMode: { ideal: "user" },
       }
