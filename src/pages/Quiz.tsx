@@ -121,6 +121,7 @@ const Quiz: React.FC = () => {
           <model-viewer
             src={question.correct.model}
             autoplay
+            camera-controls
             shadow-intensity="1"
             environment-image="legacy"
             style={{ width: '100%', height: '15rem' }}
