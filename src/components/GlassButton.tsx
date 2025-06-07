@@ -6,13 +6,14 @@ type GlassProps = {
     onClick?: () => void;
     children: ReactNode;
     className?: string;
+    contentClassName?: string;
 };
 
-const GlassButton: React.FC<GlassProps> = ({ onClick, children, className }) => {
+const GlassButton: React.FC<GlassProps> = ({ onClick, children, className, contentClassName }) => {
     return (
-        <button className={`glass-card ${className}`} onClick={onClick}>
+        <button className={`glass-card ${className ?? ''}`} onClick={onClick}>
             <div className="glass-stroke"></div>
-            <div className="glass-content">{children}</div>
+            <div className={`glass-content ${contentClassName ?? ''}`}>{children}</div>
         </button>
     );
 };
