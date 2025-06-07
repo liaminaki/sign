@@ -13,6 +13,9 @@
   -moz-osx-font-smoothing: grayscale;
 
   --main-padding: 1.5rem;
+
+  --green: #5FBC63;
+  --red: #d02f47;
 }
 
 *, *::before, *::after {
@@ -25,7 +28,7 @@ body {
   min-height: 100svh;
   overflow: auto;
 
-  background-image: url('./assets/img/bg5.png');
+  background-image: url('./assets/img/bg2.png');
   background-size: cover;
   background-position: center;
 }
@@ -45,6 +48,9 @@ body {
   width: 100%;
   min-height: 100svh;
   overflow: auto;
+
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -204,6 +210,8 @@ button {
   /* background-color: rgba(0, 0, 0, 0.3); */
   background-color: transparent;
   color: white;
+  font: inherit;
+  font-size: 0.75rem;
   
   transition: background 0.2s, transform 0.1s;
   border: none;
