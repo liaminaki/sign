@@ -25,30 +25,28 @@ const Lesson: React.FC = () => {
   return (
     <div className='app-container'>
       <NavBar backPath="/lessons"/>
-      <section className=''>
-        <header className='lesson-header'>
-          <h2 className='lesson-title'>{lesson.title}</h2>
-          <p className='lesson-desc'>
-            {lesson.description}
-          </p>
-        </header>
-        <div className='lessons-container signs-container'>
-          {lesson.signs.map((item) => (
-            <GlassButton 
-              key={item.title}
-              className='card'
-              onClick={() => handleModalOpen(item)}
-            >
-              <model-viewer
-                src={item.model}
-                autoplay
-                shadow-intensity="1"
-                environment-image="legacy"
-              ></model-viewer>
-              <p>{item.title}</p>
-            </GlassButton>
-          ))}
-        </div>
+      <header className='lesson-header'>
+        <h2 className='lesson-title'>{lesson.title}</h2>
+        <p className='lesson-desc'>
+          {lesson.description}
+        </p>
+      </header>
+      <section className='lessons-container signs-container'>
+        {lesson.signs.map((item) => (
+          <GlassButton 
+            key={item.title}
+            className='card'
+            onClick={() => handleModalOpen(item)}
+          >
+            <model-viewer
+              src={item.model}
+              autoplay
+              shadow-intensity="1"
+              environment-image="legacy"
+            ></model-viewer>
+            <p>{item.title}</p>
+          </GlassButton>
+        ))}
       </section>
       {isModalOpen && selectedSign && (
         <Modal
