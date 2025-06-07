@@ -267,6 +267,7 @@ button:hover {
   left: 0;
   width: 100%;
   z-index: 10;  */
+  margin-bottom: var(--main-padding);
 }
 
 .nav-bar-btns {
