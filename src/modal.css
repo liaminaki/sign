@@ -11,6 +11,10 @@
     z-index: 999;
 }
 
+.modal-title {
+    font-size: 2rem !important;
+}
+
 .modal-content {
     position: relative;
     height: 75vh;
@@ -21,7 +25,7 @@
 
 .close-button {
     position: absolute;
-    top: 0.25%;
+    top: 2%;
     right: 0.25%;
     width: auto !important;
     color: gray;
@@ -40,4 +44,48 @@
     border-radius: 50px;
     /* width: auto !important; */
     margin: 10px auto 0 auto;
+}
+
+/* Option buttons row */
+.modal-content > div {
+  margin-bottom: 1rem;
+}
+
+.sec-button.active,
+.sec-button:focus {
+  background: #fff;
+  color: #222;
+  outline: none;
+}
+
+.sec-button:not(.active):hover {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+/* Responsive for modal content */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95vw;
+    padding: 1rem;
+  }
+}
+
+.view-options {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.view-options > button {
+    padding: 0.25rem;
+    width: 3rem;
+    font-size: 0.5rem;
+}
+
+.modal-content iframe, .modal-content model-viewer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
