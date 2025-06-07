@@ -4,6 +4,7 @@ import Lessons from './pages/Lessons';
 import Lesson from './pages/Lesson';
 import CameraApp from './pages/CameraApp';
 import { CameraKit } from './contexts/CameraKitContext';
+import Quiz from './pages/Quiz'; // <-- Import your quiz component
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/lessons" element={<Lessons />} />
         <Route path="/lessons/:id" element={<Lesson />} />
+        <Route path="/lessons/:id/quiz" element={<Quiz />} /> {/* <-- Add this line */}
         <Route 
           path="/camera" 
           element={

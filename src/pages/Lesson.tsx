@@ -26,10 +26,20 @@ const Lesson: React.FC = () => {
     <div className='app-container'>
       <NavBar backPath="/lessons"/>
       <header className='lesson-header'>
-        <h2 className='lesson-title'>{lesson.title}</h2>
-        <p className='lesson-desc'>
-          {lesson.description}
-        </p>
+        <div className='lesson-header-content'>
+          <h2 className='lesson-title'>{lesson.title}</h2>
+          <p className='lesson-desc'>
+            {lesson.description}
+          </p>
+        </div>
+        <div className='lesson-quiz-button'>
+          <button
+            className='action-button'
+            onClick={() => navigate(`/lessons/${id}/quiz`)}
+          >
+            Take Quiz
+          </button>
+        </div>
       </header>
       <section className='lessons-container signs-container'>
         {lesson.signs.map((item) => (
