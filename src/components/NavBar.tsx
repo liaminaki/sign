@@ -21,7 +21,7 @@ const NavBar: React.FC<NavBarProps> = ({ backPath }) => {
           <FontAwesomeIcon icon={faArrowLeft} size="lg" />
         </button>
         <Link to="/" className="home-button">
-          he<em>AR</em>
+          <em>sign</em>
         </Link>
       </div>
     </nav>

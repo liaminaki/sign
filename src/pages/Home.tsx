@@ -12,10 +12,10 @@ const Home: React.FC = () => {
   return (
     <div className='app-container'>
       <main className='home'>
-        <h1>he<em>AR</em></h1>
+        <h1><em>sign</em></h1>
         <p className='tagline'>
-          Redefining what it means to hear— <br/>
-          bridging communication with the Deaf <br/>
+          {/* Redefining what it means to hear— <br/> */}
+          Bridging communication with the Deaf <br/>
           through learning Filipino Sign Language <br/>
           with Augmented Reality <br/><br/>
 
