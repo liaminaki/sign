@@ -6,7 +6,7 @@ const lessonData = {
     alphabet: {
       id: "alphabet",
       title: "Alphabet",
-      description: "A set of hand signs representing letters, forming the foundation for fingerspelling in sign language. Note: Use right hand.",
+      description: "A set of hand signs representing letters, forming the foundation for fingerspelling in sign language.",
       icon: alphabetIcon,
       signs: [
         { title: "A", set: "Alphabet", model: "/alphabet/a.glb", isStatic: true, steps: 1 },
@@ -40,7 +40,7 @@ const lessonData = {
     numbers: {
       id: "numbers",
       title: "Numbers",
-      description: "This is a description for numbers",
+      description: "Learn to recognize and sign numbers in sign language, essential for counting, dates, and everyday communication.",
       icon: numbersIcon,
       signs: [
         { title: "1", set: "Numbers", model: "/numbers/1.glb", isStatic: false, steps: 1 },
@@ -58,7 +58,7 @@ const lessonData = {
     greetings: {
         id: "greetings",
         title: "Greetings",
-        description: "This is a description for greetings",
+        description: "Master common greetings and phrases to start conversations and interact politely in sign language.",
         icon: greetingsIcon,
         signs: [
           { title: "you-how", set: "Greetings", model: "/greetings/you-how.glb", isStatic: false, steps: 2, duration: [1.34, 1.2] },
