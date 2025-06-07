@@ -70,12 +70,33 @@ const Quiz: React.FC = () => {
     return (
       <div className="app-container">
         <NavBar backPath={`/lessons/${id}`} />
-        <Glass className="quiz-container" contentClassName="quiz-content">
-          <header className="quiz-header">
-            <h2 className="quiz-title">Quiz Complete!</h2>
-          </header>
-          <section style={{ textAlign: "center" }}>
-            <p>Your score: <b>{score}</b> / {questions.length}</p>
+        <Glass className="quiz-container" contentClassName="quiz-results">
+          <section className="quiz-results-row1">
+            <div className="quiz-results-score">
+              <h2>{score}</h2>
+              <p>of {questions.length}</p>
+            </div>
+            <p className="quiz-feedback">
+              {score === questions.length
+                ? "Perfect score! 🎉"
+                : score > 0
+                  ? "Great job! Try again to improve your score."
+                  : "Keep practicing and try again!"}
+            </p>
+          </section>
+          <section className="quiz-results-actions">
+            <button
+              className='action-button'
+              onClick={() => window.location.reload()}
+            >
+              Retake
+            </button>
+            <button
+              className='sec-button'
+              onClick={() => window.history.back()}
+            >
+              Done
+            </button>
           </section>
         </Glass>
       </div>
