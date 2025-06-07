@@ -8,9 +8,9 @@ const Lessons: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <main className='app-container bg'>
+    <div className='app-container'>
       <NavBar backPath="/"/>
-      <section className='ui-container'>
+      <section className=''>
         <h2>Lessons</h2>
         <div className='lessons-container'>
           {Object.values(lessonData).map((lesson) => (
@@ -25,7 +25,7 @@ const Lessons: React.FC = () => {
             ))}
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

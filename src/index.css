@@ -11,21 +11,46 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --main-padding: 1.5rem;
 }
 
-html, body {
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
   margin: 0;
-  width: 100vw;
+  width: 100%;
   min-height: 100svh;
   overflow: auto;
+
+  background-image: url('./assets/img/bg5.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#root {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  height: 100svh;
+}
+
+.app-container {
+  padding: var(--main-padding);
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  overflow: auto;
 }
 
 h1 {
   font-size: 6rem;
   line-height: normal;
+  margin: 0;
 }
 
 h2 {
@@ -39,16 +64,6 @@ p {
   line-height: 1;
 }
 
-#root {
-  width: 100vw;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 /* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -56,19 +71,24 @@ p {
   }
 } */
 
-.app-container {
-  position: relative;
-  width: 100vw;
-  min-height: 100svh;
-  overflow: auto;
-}
-
 canvas {
   width: 100vw;
   height: 100svh;
   display: block;
-  object-fit: cover; 
+  object-fit: cover;
   position: relative;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100svh - 2 * var(--main-padding));
+}
+
+.camera {
+  padding: 0;
 }
 
 .ui-container > * {
@@ -220,17 +240,10 @@ button:hover {
   font-weight: bold;
 }
 
-.bg {
-  background-image: url('./assets/img/bg5.png'); /* Adjust the path to your background image */
-  background-size: cover;
-  background-position: center;
-}
-
 .cta {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem;
 }
 
 .card {
@@ -249,11 +262,11 @@ button:hover {
 }
 
 .nav-bar {
-  position: absolute; 
+  /* position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10; 
+  z-index: 10;  */
 }
 
 .nav-bar-btns {
@@ -261,7 +274,6 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   color: white;
-  margin: 1.5rem 1.5rem 0 1.5rem
 }
 
 .home-button {

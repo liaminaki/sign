@@ -160,7 +160,7 @@ const CameraApp: React.FC = () => {
   };
 
   return (
-    <main className="app-container">
+    <main className="app-container camera">
       <div ref={canvasContainerRef}></div>
       <div className="gradient-black"></div>
       <section className="ui-container">

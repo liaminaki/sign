@@ -8,27 +8,27 @@ const Home: React.FC = () => {
   const GoTo = (path: string) => {
     navigate(path);
   };
-  
+
   return (
-    <main className='app-container bg'>
-        <section className='ui-container'>
-            <h1>he<em>AR</em></h1>
-            <p className='tagline'>
-              Redefining what it means to hear— <br/>
-              bridging communication with the Deaf <br/>
-              through learning Filipino Sign Language <br/>
-              with Augmented Reality <br/><br/>
+    <div className='app-container'>
+      <main className='home'>
+        <h1>he<em>AR</em></h1>
+        <p className='tagline'>
+          Redefining what it means to hear— <br/>
+          bridging communication with the Deaf <br/>
+          through learning Filipino Sign Language <br/>
+          with Augmented Reality <br/><br/>
 
-              {/* <em>Hear!&emsp;Hear!&emsp;Here!</em>  <br/> */}
-            </p>
+          {/* <em>Hear!&emsp;Hear!&emsp;Here!</em>  <br/> */}
+        </p>
 
-            <div className='cta'>
-                <GlassButton onClick={() => GoTo('/lessons')}>
-                    Start Now
-                </GlassButton>
-            </div>
-        </section>
-    </main>
+        <div className='cta'>
+            <GlassButton onClick={() => GoTo('/lessons')}>
+                Start Now
+            </GlassButton>
+        </div>
+      </main>
+    </div>
   );
 };
 
