@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Glass from "../components/Glass";
-import "../styles/Quiz.css";
+import "../styles/quiz.css";
 import GlassButton from "../components/GlassButton";
 import { Icon } from "@iconify/react";
 import lessonData from '../data/lessonData';
