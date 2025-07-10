@@ -75,13 +75,17 @@
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
 }
 
 .view-options > button {
     padding: 0.25rem;
     width: 3rem;
     font-size: 0.5rem;
+}
+
+.credit {
+    font-size: 0.5rem !important;
 }
 
 .modal-content iframe, .modal-content model-viewer {
