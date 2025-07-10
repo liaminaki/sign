@@ -7,11 +7,12 @@ import '../modal.css';
 interface ModalProps {
     onClose: () => void;
     src: string;
+    video: string;
     onPractice: () => void;
     title: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ onClose, src, title, onPractice }) => {
+const Modal: React.FC<ModalProps> = ({ onClose, src, title, video, onPractice }) => {
     const [view, setView] = useState<'3d' | 'video'>('3d');
 
     return (
@@ -20,26 +21,6 @@ const Modal: React.FC<ModalProps> = ({ onClose, src, title, onPractice }) => {
                 <button className='close-button' onClick={onClose}>
                     <FontAwesomeIcon icon={faXmark} size="lg" />
                 </button>
-                {view === '3d' ? (
-                    <model-viewer
-                        src={src}
-                        camera-controls
-                        autoplay
-                        shadow-intensity="1"
-                        style={{ width: '90%', height: '300px' }}
-                        environment-image="legacy"
-                    ></model-viewer>
-                ) : (
-                    <iframe
-                        src={`https://drive.google.com/file/d/12zYLRzaKGMcxdyNJ6S9XrVJa9oK8Wnnx/preview`}
-                        width="70%"
-                        height="300"
-                        allow="autoplay"
-                        style={{ border: 0 }}
-                        title="Google Drive Video"
-                    ></iframe>
-                )}
-                <p className='modal-title'>{title}</p>
                 <div className="view-options">
                     <button
                         className={`sec-button${view === '3d' ? ' active' : ''}`}
@@ -54,6 +35,30 @@ const Modal: React.FC<ModalProps> = ({ onClose, src, title, onPractice }) => {
                         Video
                     </button>
                 </div>
+                {view === '3d' ? (
+                    <model-viewer
+                        src={src}
+                        camera-controls
+                        autoplay
+                        shadow-intensity="1"
+                        style={{ width: '90%', height: '300px' }}
+                        environment-image="legacy"
+                    ></model-viewer>
+                ) : (
+                    <>
+                        <iframe
+                            src={video}
+                            width="70%"
+                            height="300"
+                            allow="autoplay"
+                            style={{ border: 0 }}
+                            title={title}
+                        ></iframe>
+                        <p className='credit'>© MediSIGN by UP Medical Students for Social Responsibility</p>
+                    </>
+                )}
+                <p className='modal-title'>{title}</p>
+
                 <button className='action-button' onClick={onPractice}>Practice</button>
             </Glass>
         </div>

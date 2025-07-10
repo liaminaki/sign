@@ -62,6 +62,7 @@ const Lesson: React.FC = () => {
         <Modal
           onClose={handleModalClose}
           src={selectedSign.model}
+          video={selectedSign.video}
           title={selectedSign.title}
           onPractice={() => 
             navigate(`/camera?model=${selectedSign.title.toLowerCase()}`, { state: { selectedSign } })
